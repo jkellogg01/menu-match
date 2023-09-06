@@ -9,5 +9,6 @@
 }
 
 * {
-  background-color: lightblue;
+  background-color: linear-gradient(var(--white), var(--lightBlue));
+
 }
