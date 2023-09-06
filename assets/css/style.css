@@ -1,0 +1,14 @@
+:root {
+  --darkBlue: #33658a;
+  --lightBlue: #86bbd8;
+  --darkestBlue: #2f4858;
+  --yellowish: #f6ae2d;
+  --orange: #f26419;
+  --black: #000;
+  --white: #fff;
+}
+
+* {
+  background-color: linear-gradient(var(--white), var(--lightBlue));
+
+}
