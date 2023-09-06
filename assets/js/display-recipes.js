@@ -1,4 +1,4 @@
-const mealDBEndpoint = "www.themealdb.com/api/json/v1/1/";
+const mealDBEndpoint = "https://www.themealdb.com/api/json/v1/1/";
 const mealDBExtensions = {
   searchByName: "search.php?s=",
   searchByRegion: "filter.php?a=",
@@ -10,7 +10,7 @@ const mealDBExtensions = {
   random: "random.php",
 };
 
-const cocktailDBEndpoint = "www.thecocktaildb.com/api/json/v1/1/";
+const cocktailDBEndpoint = "https://www.thecocktaildb.com/api/json/v1/1/";
 const cocktailDBExtensions = {
   searchByName: "search.php?s=",
   searchByIngredient: "filter.php?i=",
@@ -23,3 +23,18 @@ const cocktailDBExtensions = {
   listAlcoholics: "list.php?a=list",
   random: "random.php",
 };
+
+let testURL = mealDBEndpoint + mealDBExtensions.searchByName + "soup";
+console.log(testURL);
+
+let displayingRecipes =
+  JSON.parse(localStorage.getItem("displayRecipes")) || [];
+if (!displayingRecipes[0]) {
+  $.ajax({
+    url: testURL,
+    method: "GET",
+    async: false,
+  }).then((data) => {
+    displayingRecipes = data.meals;
+  });
+}
