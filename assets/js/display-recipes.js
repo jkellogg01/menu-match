@@ -51,9 +51,7 @@ function renderPrimaryRecipe(recipe) {
     );
     ingredientEl.attr("data-childIndex", i);
     const saveIngredientBtn = $('<button class="btn btn-primary">');
-    saveIngredientBtn.append(
-      $('<i class="fas fa-save" aria-hidden="true"></i>')
-    );
+    saveIngredientBtn.text("+");
     saveIngredientBtn.on("click", handleSaveIngredient);
     ingredientEl.text(nextIngredient);
     ingredientEl.append(saveIngredientBtn);
@@ -68,7 +66,7 @@ function renderRecipeList() {
       '<li class="list-group-item d-flex justify-content-between align-items-center">'
     );
     const saveRecipeBtn = $('<button class="btn btn-primary">');
-    saveRecipeBtn.append($('<i class="fas fa-save" aria-hidden="true"></i>'));
+    saveRecipeBtn.text("save");
     saveRecipeBtn.on("click", handleSaveRecipe);
     listRecipeEl.attr("data-childIndex", index);
     listRecipeEl.text(recipeName);
@@ -110,12 +108,20 @@ function handleSaveRecipe(event) {
 
 function handleSaveIngredient(event) {
   let element = $(event.target);
-  let ingredientIndex = element.parent().attr("data-childIndex");
-  let ingredientKey = "strIngredient" + ingredientIndex;
-  console.log(ingredientKey);
-  let savingIngredient = primaryRecipe[ingredientKey];
+  let ingredient = element.parent().text();
+  let savingIngredient = filterIngredientPair(ingredient);
   console.log(savingIngredient);
   shoppingList.push(savingIngredient);
   localStorage.setItem("shoppingList", JSON.stringify(shoppingList));
   console.log(shoppingList);
+}
+
+function filterIngredientPair(ingredientText) {
+  let segments = ingredientText.split(" ");
+  let result = "";
+  for (let i = 0; i < segments.length; i++) {
+    if (segments[i].includes("-")) return result.trim();
+    result += segments[i] + " ";
+  }
+  return result.trim();
 }
