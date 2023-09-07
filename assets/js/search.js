@@ -28,15 +28,35 @@ var cocktailCatagories =
 
 // console.log(cocktailIngrediants);
 
-var name = $(".dropdown-name");
+var cocktailName = $(".dropdown-name");
 var ingredient = $(".dropdown-ingrediant");
 var category = $(".dropdown-category");
 
-$(".dropdown-menu").on("click", nameEventHandler());
+cocktailName.on("click", nameEventHandler());
+ingredient.on("click", ingredientEventHandler());
+category.on("click", categoryEventHandler());
 
 function nameEventHandler() {
   console.log("nameClicked");
 }
+
+function ingredientEventHandler() {
+  console.log("ingrediantClicked");
+}
+
+function categoryEventHandler() {
+  console.log("categoryClicked");
+}
+
+
+
+
+
+
+
+
+
+
 
 $.ajax({
   url: cocktailCatagories,
@@ -44,5 +64,5 @@ $.ajax({
   // async: false,
 }).then((data) => {
   displayingRecipes = data.meals;
-  console.log(data);
+  // console.log(data);
 });
