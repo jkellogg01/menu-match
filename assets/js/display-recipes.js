@@ -8,7 +8,7 @@ let savedRecipes = JSON.parse(localStorage.getItem("savedRecipes")) || [];
 let displayingRecipes =
   JSON.parse(localStorage.getItem("displayRecipes")) || savedRecipes;
 // THE FOLLOWING WILL NEED TO BE REMOVED ONCE I STOP USING MY EXAMPLE CODE
-displayingRecipes = displayingRecipes.meals;
+// displayingRecipes = displayingRecipes.meals;
 
 let shoppingList = JSON.parse(localStorage.getItem("shoppingList")) || [];
 
