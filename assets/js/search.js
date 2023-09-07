@@ -28,30 +28,41 @@ var cocktailCatagories =
 
 // console.log(cocktailIngrediants);
 
+var cocktailName = $(".dropdown-name");
+var ingredient = $(".dropdown-ingrediant");
+var category = $(".dropdown-category");
+
+cocktailName.on("click", nameEventHandler());
+ingredient.on("click", ingredientEventHandler());
+category.on("click", categoryEventHandler());
+
+function nameEventHandler() {
+  console.log("nameClicked");
+}
+
+function ingredientEventHandler() {
+  console.log("ingrediantClicked");
+}
+
+function categoryEventHandler() {
+  console.log("categoryClicked");
+}
+
+
+
+
+
+
+
+
+
+
+
 $.ajax({
   url: cocktailCatagories,
   method: "GET",
   // async: false,
 }).then((data) => {
   displayingRecipes = data.meals;
-  console.log(data);
-  var userInput = 
-  
-  
-  
-  
-  
-  
-  
-  
-  
+  // console.log(data);
 });
-  // if (userInput === name) {
-    //   make a search bar appear 
-    
-    // } else if (userInput === ingredient) {
-      //   make a search bar
-      
-      // } else {
-        //   make another drop down 
-        // } 
