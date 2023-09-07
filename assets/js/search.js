@@ -43,7 +43,7 @@ function nameEventHandler() {
   categoryDrop.attr("hidden", true);
   search.append("<h2>Search your cocktail name here!</h2>");
   search.append("<input></input>");
-  search.append("<button>Search</button>");
+  search.append("<button><a href=./display-recipes.html>Search</a></button>");
   console.log("nameClicked");
 }
 
@@ -52,7 +52,7 @@ function ingredientEventHandler() {
   categoryDrop.attr("hidden", true);
   search.append("<h2>Search your ingredient name here!</h2>");
   search.append("<input></input>");
-  search.append("<button>Search</button>");
+  search.append("<button><a href=./display-recipes.html>Search</a></button>");
   console.log("ingrediantClicked");
 }
 
