@@ -9,7 +9,11 @@
 }
 
 body {
-  background: linear-gradient(#ebf4f5, #b5c6e0 )
+  background: linear-gradient(#ebf4f5, #b5c6e0 );
+  height: 100%;
+  margin: 0;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
 }
 header {
   background-color: var(--navy);
@@ -24,7 +28,7 @@ header ul {
   color: var(--white);
 }
 
-.nav-item {
+.nav-link {
   color: var(--white);
   text-decoration: none;
   font-family: Inconsolata;
