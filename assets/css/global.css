@@ -8,17 +8,23 @@
   --white: #fff;
 }
 
-* {
-  background-color: linear-gradient(var(--white), var(--lightBlue));
+body {
+  background: linear-gradient(#ebf4f5, #b5c6e0 )
 }
 header {
-  background-color: lightblue;
+  background-color: var(--navy);
   padding: 15px;
 }
 header ul {
   margin: 15px;
 }
 /* sr nav link color */
+.custom-nav-header {
+  font-family: Karla;
+  color: var(--white);
+  font-size: 5rem;
+}
+
 .nav {
   --bs-nav-link-color: #000000;
   --bs-nav-link-hover-color: #000000;
@@ -44,7 +50,7 @@ header ul {
 
 /* ======================================== footer css ====================================*/
 footer {
-  background-color: lightblue;
+  background-color: var(--navy);
   padding: 5px;
 }
 /* ==========button toggle========== */
@@ -97,8 +103,10 @@ footer {
 
 .user-blurb-card {
   background-color: var(--yellowish);
-  font-family: Inconsolata;
+  font-family: Karla;
   font-size: larger;
+  text-align: center;
+  color: var(--navy);
 }
 
 /*Searchbar for the cocktail-search page once it is appended via js*/
