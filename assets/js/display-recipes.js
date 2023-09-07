@@ -2,6 +2,7 @@ const recipeNameEl = $("#recipe-name");
 const recipeThumbEl = $("#recipe-thumbnail");
 const ingredientsContainerEl = $("#ingredients");
 const prepInstructionsEl = $("#prep-instructions");
+const recipeListContainerEl = $("#recipe-list");
 
 const mealDBEndpoint = "https://www.themealdb.com/api/json/v1/1/";
 const mealDBExtensions = {
@@ -48,6 +49,7 @@ let displayingRecipes =
 let primaryRecipe = displayingRecipes[0];
 console.log(primaryRecipe);
 renderPrimaryRecipe(primaryRecipe);
+renderRecipeList();
 
 function renderPrimaryRecipe(recipe) {
   recipeNameEl.text(recipe.strMeal || recipe.strDrink);
@@ -66,3 +68,15 @@ function renderPrimaryRecipe(recipe) {
     ingredientsContainerEl.append(ingredientEl);
   }
 }
+
+function renderRecipeList() {
+  displayingRecipes.forEach((value) => {
+    let recipeName = value.strMeal || value.strDrink;
+    const listRecipeEl = $('<li class="list-group-item">');
+    listRecipeEl.text(recipeName);
+    // listRecipeEl.on("click", handleChangePrimaryRecipe);
+    recipeListContainerEl.append(listRecipeEl);
+  });
+}
+
+function handleChangePrimaryRecipe(event) {}
