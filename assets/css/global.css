@@ -101,6 +101,12 @@ footer {
   font-size: larger;
 }
 
+/*Searchbar for the cocktail-search page once it is appended via js*/
+.cocktailSearchBar {
+  margin: 15px;
+  float: right;
+}
+
 .custom-margin {
   margin-bottom: 100px;
 }
