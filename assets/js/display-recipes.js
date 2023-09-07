@@ -29,7 +29,8 @@ renderPrimaryRecipe(primaryRecipe);
 renderRecipeList();
 
 function renderPrimaryRecipe(recipe) {
-  recipeNameEl.text(recipe.strMeal || recipe.strDrink);
+  let recipeName = recipe.strMeal || recipe.strDrink;
+  recipeNameEl.text(recipeName);
   recipeThumbEl.attr("src", recipe.strMealThumb || recipe.strDrinkThumb);
   recipeThumbEl.attr("alt", recipeNameEl.text());
   prepInstructionsEl.text(recipe.strInstructions);
@@ -74,7 +75,14 @@ function handleChangePrimaryRecipe(event) {
 
 function handleSaveRecipe(event) {
   let element = $(event.target);
-  let recipeIndex = event.parent().data("childIndex");
+  let recipeIndex = element.parent().data("childIndex");
+  console.log(recipeIndex);
+  if (typeof recipeIndex === "undefined") {
+    console.log(
+      "returning an undefined index. I need to figure out why it ever does that."
+    );
+    return;
+  }
   let savingRecipe = displayingRecipes[recipeIndex];
   if (savedRecipes.includes(savingRecipe)) {
     console.log(
@@ -83,5 +91,7 @@ function handleSaveRecipe(event) {
     return;
   }
   savedRecipes.push(savingRecipe);
-  localStorage.setItem("savedRecipes", savedRecipes);
+  console.log(savingRecipe);
+  console.log(savedRecipes);
+  localStorage.setItem("savedRecipes", JSON.stringify(savedRecipes));
 }
