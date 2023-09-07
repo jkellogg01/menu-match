@@ -1,14 +1,16 @@
 :root {
   --darkBlue: #33658a;
   --lightBlue: #86bbd8;
-  --darkestBlue: #2f4858;
+  --navy: #2f4858;
   --yellowish: #f6ae2d;
   --orange: #f26419;
   --black: #000;
   --white: #fff;
 }
 
-* {
-  background-color: linear-gradient(var(--white), var(--lightBlue));
-
+body {
+  background: linear-gradient(180deg, #E3EFF5 0%, rgba(134, 187, 216, 0.50) 100%);
+  height: 100vh;
 }
+
+
