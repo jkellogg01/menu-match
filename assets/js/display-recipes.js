@@ -50,11 +50,17 @@ function renderPrimaryRecipe(recipe) {
 function renderRecipeList() {
   displayingRecipes.forEach((value, index) => {
     let recipeName = value.strMeal || value.strDrink;
-    const listRecipeEl = $('<li class="list-group-item">');
-    const saveRecipeBtn = $("");
+    const listRecipeEl = $(
+      '<li class="list-group-item d-flex justify-content-between align-items-center">'
+    );
+    const saveRecipeBtn = $('<button class="btn btn-primary">');
+    //set the icon thing, I need help doing that
+    saveRecipeBtn.append($('<i class="fas fa-save" aria-hidden="true"></i>'));
+    saveRecipeBtn.on("click", handleSaveRecipe);
     listRecipeEl.data("childIndex", index);
     listRecipeEl.text(recipeName);
     listRecipeEl.on("click", handleChangePrimaryRecipe);
+    listRecipeEl.append(saveRecipeBtn);
     recipeListContainerEl.append(listRecipeEl);
   });
 }
