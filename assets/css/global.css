@@ -18,22 +18,27 @@ header {
 header ul {
   margin: 15px;
 }
-/* sr nav link color */
+
 .custom-nav-header {
   font-family: Karla;
   color: var(--white);
-  font-size: 5rem;
 }
 
-.nav {
-  --bs-nav-link-color: #000000;
-  --bs-nav-link-hover-color: #000000;
+.nav-item {
+  color: var(--white);
+  text-decoration: none;
+  font-family: Inconsolata;
+}
+
+.custom-active {
+  background-color: var(--orange);
 }
 
 .nav-item:hover {
-  border: 1px solid black;
-  box-shadow: inset 2px 2px 15px var(--black);
-  border-radius: 15px;
+  background-color: var(--lightBlue);
+  color: var(--navy);
+  box-shadow: inset 1px 1px 10px #a3cde8;
+  border-radius: 5px;
 }
 
 .vh-60 {
@@ -89,7 +94,7 @@ footer {
 /* Landing Page */
 
 .custom-button {
-  background-color: var(--navy);
+  background-color: var(--darkBlue);
   color: var(--white);
   font-family: Karla;
   border: none;
@@ -98,7 +103,7 @@ footer {
 .custom-button:hover {
   background-color: var(--lightBlue);
   color: var(--navy);
-  box-shadow: inset 1px 1px 10px #333;
+  box-shadow: inset 1px 1px 10px #a3cde8;
 }
 
 .user-blurb-card {
