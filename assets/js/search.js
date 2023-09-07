@@ -38,17 +38,26 @@ ingredient.on("click", ingredientEventHandler);
 category.on("click", categoryEventHandler);
 
 function nameEventHandler() {
-  search.append("<p>im Here!</p>");
-
+  search.text("");
+  search.append("<h2>Search your cocktail name here!</h2>");
+  search.append("<input></input>");
+  search.append("<button>Search</button>");
   console.log("nameClicked");
   
 }
 
 function ingredientEventHandler() {
+  search.text("");
+  search.append("<h2>Search your ingredient name here!</h2>");
+  search.append("<input></input>");
+  search.append("<button>Search</button>");
   console.log("ingrediantClicked");
+
 }
 
 function categoryEventHandler() {
+  search.append("");
+  search.append();
   console.log("categoryClicked");
 }
 
