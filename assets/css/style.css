@@ -8,7 +8,19 @@
   --white: #fff;
 }
 
-* {
-  background-color: linear-gradient(var(--white), var(--lightBlue));
+header {
+  background-color: lightblue;
+  padding: 15px;
+}
+header ul {
+  margin: 15px;
+}
 
+.nav-item:hover {
+  border: 1px solid black;
+  box-shadow: inset 2px 2px 15px var(--black);
+  border-radius: 15px;
+}
+main {
+  background-color: red;
 }
