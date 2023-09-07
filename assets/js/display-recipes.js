@@ -49,6 +49,7 @@ function renderPrimaryRecipe(recipe) {
     const ingredientEl = $(
       '<li class="list-group-item d-flex justify-content-between align-items-center">'
     );
+    ingredientEl.attr("data-childIndex", i);
     const saveIngredientBtn = $('<button class="btn btn-primary">');
     saveIngredientBtn.append(
       $('<i class="fas fa-save" aria-hidden="true"></i>')
@@ -111,4 +112,10 @@ function handleSaveIngredient(event) {
   let element = $(event.target);
   let ingredientIndex = element.parent().attr("data-childIndex");
   let ingredientKey = "strIngredient" + ingredientIndex;
+  console.log(ingredientKey);
+  let savingIngredient = primaryRecipe[ingredientKey];
+  console.log(savingIngredient);
+  shoppingList.push(savingIngredient);
+  localStorage.setItem("shoppingList", JSON.stringify(shoppingList));
+  console.log(shoppingList);
 }
