@@ -29,4 +29,12 @@ header ul {
   height: 40vh;
 }
 
+.header-font {
+  font-family: Karla;
+}
+
+.body-font {
+  font-family: Inconsolata;
+}
+
 
