@@ -31,13 +31,17 @@ var cocktailCatagories =
 var cocktailName = $(".dropdown-name");
 var ingredient = $(".dropdown-ingrediant");
 var category = $(".dropdown-category");
+var search = $(".cocktailSearchBar");
 
-cocktailName.on("click", nameEventHandler());
-ingredient.on("click", ingredientEventHandler());
-category.on("click", categoryEventHandler());
+cocktailName.on("click", nameEventHandler);
+ingredient.on("click", ingredientEventHandler);
+category.on("click", categoryEventHandler);
 
 function nameEventHandler() {
+  search.append("<p>im Here!</p>");
+
   console.log("nameClicked");
+  
 }
 
 function ingredientEventHandler() {
@@ -47,16 +51,6 @@ function ingredientEventHandler() {
 function categoryEventHandler() {
   console.log("categoryClicked");
 }
-
-
-
-
-
-
-
-
-
-
 
 $.ajax({
   url: cocktailCatagories,
