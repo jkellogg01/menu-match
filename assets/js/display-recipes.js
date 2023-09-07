@@ -4,8 +4,11 @@ const ingredientsContainerEl = $("#ingredients");
 const prepInstructionsEl = $("#prep-instructions");
 const recipeListContainerEl = $("#recipe-list");
 
+let savedRecipes = JSON.parse(localStorage.getItem("savedRecipes")) || [];
 let displayingRecipes =
-  JSON.parse(localStorage.getItem("displayRecipes")).meals || [];
+  JSON.parse(localStorage.getItem("displayRecipes")) || savedRecipes;
+// THE FOLLOWING WILL NEED TO BE REMOVED ONCE I STOP USING MY EXAMPLE CODE
+displayingRecipes = displayingRecipes.meals;
 
 // this was to populate example data
 // this page will not pull any api data when it's finished
@@ -48,6 +51,7 @@ function renderRecipeList() {
   displayingRecipes.forEach((value, index) => {
     let recipeName = value.strMeal || value.strDrink;
     const listRecipeEl = $('<li class="list-group-item">');
+    const saveRecipeBtn = $("");
     listRecipeEl.data("childIndex", index);
     listRecipeEl.text(recipeName);
     listRecipeEl.on("click", handleChangePrimaryRecipe);
@@ -60,5 +64,18 @@ function handleChangePrimaryRecipe(event) {
   let recipeIndex = element.data("childIndex");
   let newPrimaryRecipe = displayingRecipes[recipeIndex];
   renderPrimaryRecipe(newPrimaryRecipe);
-  // renderPrimaryRecipe(displayingRecipes[recipeIndex]);
+}
+
+function handleSaveRecipe(event) {
+  let element = $(event.target);
+  let recipeIndex = event.parent().data("childIndex");
+  let savingRecipe = displayingRecipes[recipeIndex];
+  if (savedRecipes.includes(savingRecipe)) {
+    console.log(
+      "recipe is already saved. In the future, maybe this should remove the recipe from the saved recipes?"
+    );
+    return;
+  }
+  savedRecipes.push(savingRecipe);
+  localStorage.setItem("savedRecipes", savedRecipes);
 }
