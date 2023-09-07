@@ -26,8 +26,6 @@ const cocktailDBExtensions = {
 var cocktailCatagories =
   "https://www.thecocktaildb.com/api/json/v1/1/list.php?c=list";
 
-// console.log(cocktailIngrediants);
-
 var cocktailName = $(".dropdown-name");
 var ingredient = $(".dropdown-ingrediant");
 var category = $(".dropdown-category");
@@ -42,10 +40,50 @@ function nameEventHandler() {
   search.text("");
   categoryDrop.attr("hidden", true);
   search.append("<h2>Search your cocktail name here!</h2>");
-  search.append("<input></input>");
-  search.append("<button><a href=./display-recipes.html>Search</a></button>");
-  console.log("nameClicked");
+  search.append(`<input class="cocktailNameInput" id="userNameInput" />`);
+  search.append("<button class=saveName >Search</button>");
 }
+
+var saveNameBtn = $("#saveName");
+
+$(search).on("click", "button", function () {
+  var userInput = $("#userNameInput").val();
+  $.ajax({
+    url: cocktailDBEndpoint + cocktailDBExtensions.searchByName + userInput,
+    method: "GET",
+  }).then((data) => {
+    console.log(data);
+
+    if (data.drinks) {
+      var savedDrinks = [];
+      for (const drink of data.drinks) {
+        var tempObj = {
+          ingredients: [],
+          measurements: [],
+        };
+        for (const key in drink) {
+          if (drink[key]) {
+            if (key.includes("Ingredient")) {
+              tempObj.ingredients.push(drink[key]);
+            } else if (key.includes("Measure")) {
+              tempObj.measurements.push(drink[key]);
+            } else {
+              tempObj[key] = drink[key];
+            }
+          }
+        }
+        savedDrinks.push(tempObj);
+      }
+      console.log(savedDrinks);
+      //
+      localStorage.setItem("savedDrinks", JSON.stringify(savedDrinks));
+    } else {
+      alert("Try again");
+      //Append a message saying try again
+      //
+    }
+  });
+});
 
 function ingredientEventHandler() {
   search.text("");
