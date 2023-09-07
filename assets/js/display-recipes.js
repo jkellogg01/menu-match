@@ -74,9 +74,21 @@ function renderRecipeList() {
     let recipeName = value.strMeal || value.strDrink;
     const listRecipeEl = $('<li class="list-group-item">');
     listRecipeEl.text(recipeName);
-    // listRecipeEl.on("click", handleChangePrimaryRecipe);
+    listRecipeEl.on("click", handleChangePrimaryRecipe);
     recipeListContainerEl.append(listRecipeEl);
   });
 }
 
-function handleChangePrimaryRecipe(event) {}
+function handleChangePrimaryRecipe(event) {
+  let element = $(event.target);
+  let list = element.parent();
+  list.children().each((index) => {
+    // console.log($(this));
+    console.log(this);
+    if ($(this) === element) {
+      // console.log($(this).text());
+      console.log(element.text());
+    }
+  });
+  // renderPrimaryRecipe(displayingRecipes[recipeIndex]);
+}

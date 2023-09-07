@@ -38,3 +38,24 @@ header ul {
 }
 
 
+/* Landing Page */
+
+.custom-button {
+  background-color: var(--navy);
+  color: var(--white);
+  font-family: Karla;
+  border: none;
+}
+
+.custom-button:hover {
+  background-color: var(--lightBlue);
+  color: var(--navy);
+  box-shadow: inset 1px 1px 10px #333;
+}
+
+.user-blurb-card {
+  background-color: var(--yellowish);
+  font-family: Inconsolata;
+  font-size: larger;
+}
+
