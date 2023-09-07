@@ -18,6 +18,11 @@ header {
 header ul {
   margin: 15px;
 }
+/* sr nav link color */
+.nav {
+  --bs-nav-link-color: #000000;
+  --bs-nav-link-hover-color: #000000;
+}
 
 .nav-item:hover {
   border: 1px solid black;
@@ -37,4 +42,41 @@ header ul {
   font-family: Inconsolata;
 }
 
+/* ======================================== footer css ====================================*/
+footer {
+  background-color: lightblue;
+  padding: 10px;
+}
+/* ==========button toggle========== */
+.bd-mode-toggle {
+  z-index: 1500;
+}
 
+.bi {
+  vertical-align: -0.125em;
+  fill: currentColor;
+}
+/* ==============================light day button======================================== */
+/* ==========button styles========== */
+.btn-bd-primary {
+  --bd-button-bg: #f6ae2d;
+  --bd-button-rgb: #dedede;
+
+  --bs-btn-font-weight: 600;
+  --bs-btn-color: var(--bs-white);
+  --bs-btn-bg: var(--bd-button-bg);
+  --bs-btn-border-color: var(--bd-button-bg);
+  --bs-btn-hover-color: var(--bs-white);
+  --bs-btn-hover-bg: #2f4858;
+  --bs-btn-hover-border-color: #f6ae2d;
+  --bs-btn-focus-shadow-rgb: var(--bd-button-rgb);
+  --bs-btn-active-color: var(--bs-btn-hover-color);
+  --bs-btn-active-bg: #2f4858;
+  --bs-btn-active-border-color: #f6ae2d;
+}
+/* ============================== secondary colors ======================================== */
+
+.text-body-secondary {
+  --bs-secondary-color: var(--black);
+  --bs-nav-link-disabled-color: var(--bs-secondary-color);
+}
