@@ -45,7 +45,7 @@ header ul {
 /* ======================================== footer css ====================================*/
 footer {
   background-color: lightblue;
-  padding: 10px;
+  padding: 5px;
 }
 /* ==========button toggle========== */
 .bd-mode-toggle {
@@ -105,4 +105,8 @@ footer {
 .cocktailSearchBar {
   margin: 15px;
   float: right;
+}
+
+.custom-margin {
+  margin-bottom: 100px;
 }
