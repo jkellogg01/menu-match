@@ -28,13 +28,13 @@ let testURL = mealDBEndpoint + mealDBExtensions.searchByName + "soup";
 console.log(testURL);
 
 let displayingRecipes =
-  JSON.parse(localStorage.getItem("displayRecipes")) || [];
-if (!displayingRecipes[0]) {
-  $.ajax({
-    url: testURL,
-    method: "GET",
-    async: false,
-  }).then((data) => {
-    displayingRecipes = data.meals;
-  });
-}
+  JSON.parse(localStorage.getItem("displayRecipes")).meals || [];
+
+$.ajax({
+  url: testURL,
+  method: "GET",
+  async: false,
+}).then((data) => {
+  displayingRecipes = data.meals;
+  localStorage.setItem("displayRecipes", JSON.stringify(data));
+});
