@@ -110,6 +110,10 @@ function handleSaveIngredient(event) {
   let element = $(event.target);
   let ingredient = element.parent().text();
   let savingIngredient = filterIngredientPair(ingredient);
+  if (shoppingList.includes(savingIngredient)) {
+    console.log("ingredient is already saved");
+    return;
+  }
   console.log(savingIngredient);
   shoppingList.push(savingIngredient);
   localStorage.setItem("shoppingList", JSON.stringify(shoppingList));
