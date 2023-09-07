@@ -31,32 +31,37 @@ var cocktailCatagories =
 var cocktailName = $(".dropdown-name");
 var ingredient = $(".dropdown-ingrediant");
 var category = $(".dropdown-category");
+var search = $(".cocktailSearchBar");
+var categoryDrop = $(".dropdownForCategories");
 
-cocktailName.on("click", nameEventHandler());
-ingredient.on("click", ingredientEventHandler());
-category.on("click", categoryEventHandler());
+cocktailName.on("click", nameEventHandler);
+ingredient.on("click", ingredientEventHandler);
+category.on("click", categoryEventHandler);
 
 function nameEventHandler() {
+  search.text("");
+  categoryDrop.attr("hidden", true);
+  search.append("<h2>Search your cocktail name here!</h2>");
+  search.append("<input></input>");
+  search.append("<button><a href=./display-recipes.html>Search</a></button>");
   console.log("nameClicked");
 }
 
 function ingredientEventHandler() {
+  search.text("");
+  categoryDrop.attr("hidden", true);
+  search.append("<h2>Search your ingredient name here!</h2>");
+  search.append("<input></input>");
+  search.append("<button><a href=./display-recipes.html>Search</a></button>");
   console.log("ingrediantClicked");
 }
 
 function categoryEventHandler() {
+  search.text("");
+  categoryDrop.attr("hidden", true);
+  categoryDrop.attr("hidden", false);
   console.log("categoryClicked");
 }
-
-
-
-
-
-
-
-
-
-
 
 $.ajax({
   url: cocktailCatagories,
