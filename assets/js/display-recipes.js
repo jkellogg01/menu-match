@@ -77,7 +77,11 @@ function handleSaveRecipe(event) {
   let element = $(event.target);
   let recipeIndex = element.parent().data("childIndex");
   console.log(recipeIndex);
+<<<<<<< HEAD
   if (typeof recipeIndex === "undefined") {
+=======
+  if (!recipeIndex) {
+>>>>>>> ab3867adaa3ea0039e49ac3eddf068b2d2397503
     console.log(
       "returning an undefined index. I need to figure out why it ever does that."
     );
