@@ -29,6 +29,9 @@ renderPrimaryRecipe(primaryRecipe);
 renderRecipeList();
 
 function renderPrimaryRecipe(recipe) {
+  if (!recipe) {
+    return;
+  }
   recipeNameEl.text(recipe.strMeal || recipe.strDrink);
   recipeThumbEl.attr("src", recipe.strMealThumb || recipe.strDrinkThumb);
   recipeThumbEl.attr("alt", recipeNameEl.text());
@@ -54,7 +57,6 @@ function renderRecipeList() {
       '<li class="list-group-item d-flex justify-content-between align-items-center">'
     );
     const saveRecipeBtn = $('<button class="btn btn-primary">');
-    //set the icon thing, I need help doing that
     saveRecipeBtn.append($('<i class="fas fa-save" aria-hidden="true"></i>'));
     saveRecipeBtn.on("click", handleSaveRecipe);
     listRecipeEl.data("childIndex", index);
@@ -74,7 +76,14 @@ function handleChangePrimaryRecipe(event) {
 
 function handleSaveRecipe(event) {
   let element = $(event.target);
-  let recipeIndex = event.parent().data("childIndex");
+  let recipeIndex = element.parent().data("childIndex");
+  console.log(recipeIndex);
+  if (typeof recipeIndex === "undefined") {
+    console.log(
+      "returning an undefined index. I need to figure out why it ever does that."
+    );
+    return;
+  }
   let savingRecipe = displayingRecipes[recipeIndex];
   if (savedRecipes.includes(savingRecipe)) {
     console.log(
@@ -83,5 +92,7 @@ function handleSaveRecipe(event) {
     return;
   }
   savedRecipes.push(savingRecipe);
-  localStorage.setItem("savedRecipes", savedRecipes);
+  console.log(savingRecipe);
+  console.log(savedRecipes);
+  localStorage.setItem("savedRecipes", JSON.stringify(savedRecipes));
 }
