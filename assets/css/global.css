@@ -45,7 +45,7 @@ header ul {
 /* ======================================== footer css ====================================*/
 footer {
   background-color: lightblue;
-  padding: 10px;
+  padding: 5px;
 }
 /* ==========button toggle========== */
 .bd-mode-toggle {
@@ -99,4 +99,8 @@ footer {
   background-color: var(--yellowish);
   font-family: Inconsolata;
   font-size: larger;
+}
+
+.custom-margin {
+  margin-bottom: 100px;
 }
