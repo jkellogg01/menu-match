@@ -35,23 +35,27 @@ $.ajax({
 }).then((data) => {
   displayingRecipes = data.meals;
   console.log(data);
-  var userInput = 
-  
-  
-  
-  
-  
-  
-  
-  
-  
 });
-  // if (userInput === name) {
-    //   make a search bar appear 
+
+$(document).ready(function() {
+  $("#dropdown-item").on(function () {
+    $("#dropdown").html("the selected text is " + $())
     
-    // } else if (userInput === ingredient) {
-      //   make a search bar
-      
-      // } else {
-        //   make another drop down 
-        // } 
+  })
+})
+
+
+
+
+
+
+
+// if (userInput === name) {
+//     make a search bar appear
+
+//   } else if (userInput === ingredient) {
+//       make a search bar
+
+//     } else {
+//         make another drop down
+//       }
