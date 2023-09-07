@@ -56,6 +56,7 @@ function renderPrimaryRecipe(recipe) {
   recipeThumbEl.attr("src", recipe.strMealThumb || recipe.strDrinkThumb);
   recipeThumbEl.attr("alt", recipeNameEl.text());
   prepInstructionsEl.text(recipe.strInstructions);
+  ingredientsContainerEl.empty();
   for (let i = 1; i <= 15; i++) {
     const ingredientKey = "strIngredient" + i;
     const measureKey = "strMeasure" + i;
@@ -70,9 +71,10 @@ function renderPrimaryRecipe(recipe) {
 }
 
 function renderRecipeList() {
-  displayingRecipes.forEach((value) => {
+  displayingRecipes.forEach((value, index) => {
     let recipeName = value.strMeal || value.strDrink;
     const listRecipeEl = $('<li class="list-group-item">');
+    listRecipeEl.data("childIndex", index);
     listRecipeEl.text(recipeName);
     listRecipeEl.on("click", handleChangePrimaryRecipe);
     recipeListContainerEl.append(listRecipeEl);
@@ -81,14 +83,8 @@ function renderRecipeList() {
 
 function handleChangePrimaryRecipe(event) {
   let element = $(event.target);
-  let list = element.parent();
-  list.children().each((index) => {
-    // console.log($(this));
-    console.log(this);
-    if ($(this) === element) {
-      // console.log($(this).text());
-      console.log(element.text());
-    }
-  });
+  let recipeIndex = element.data("childIndex");
+  let newPrimaryRecipe = displayingRecipes[recipeIndex];
+  renderPrimaryRecipe(newPrimaryRecipe);
   // renderPrimaryRecipe(displayingRecipes[recipeIndex]);
 }
