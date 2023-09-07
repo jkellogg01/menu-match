@@ -110,3 +110,8 @@ footer {
 .custom-margin {
   margin-bottom: 100px;
 }
+
+/*Using this to move the categories drop down to the right*/
+.dropdownForCategories {
+  float: right;
+}
