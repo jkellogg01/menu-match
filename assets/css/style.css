@@ -21,6 +21,3 @@ header ul {
   box-shadow: inset 2px 2px 15px var(--black);
   border-radius: 15px;
 }
-main {
-  background-color: red;
-}
