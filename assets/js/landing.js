@@ -15,7 +15,11 @@ function getRandomFood() {
   }).then(function (data) {
 
     randomFoodImgEl.attr("src", data.meals[0].strMealThumb);
-    randomFoodRecipeA.attr("href", )
+    randomFoodRecipeA.on("click", (event)=> {
+      var recipeRandom = data.meals
+      localStorage.setItem("displayRecipes", JSON.stringify(recipeRandom))
+      location.replace("./display-recipes.html");
+    })
   });
 };
 
@@ -30,7 +34,11 @@ function getRandomCocktail () {
     console.log (data);
 
     randomCocktailImgEl.attr("src", data.drinks[0].strDrinkThumb);
-    randomCocktailRecipeA.attr("href", )
+    randomCocktailRecipeA.on("click", (event)=>{
+      var cocktailRandom = data.drinks
+      localStorage.setItem("displayRecipes", JSON.stringify(cocktailRandom))
+      location.replace("./display-recipes.html");
+    })
   });
 };
 
