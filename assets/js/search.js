@@ -11,7 +11,8 @@ const mealDBExtensions = {
   random: "random.php",
 };
 //TESTING TO SEE IF API IS PULLING DATA
-var mealCatagories = "https://www.themealdb.com/api/json/v1/1/list.php?c=list";
+var mealIngrediantss =
+  "https://www.themealdb.com/api/json/v1/1/list.php?i=list";
 
 //API FOR COCKTAILS
 const cocktailDBEndpoint = "https://www.thecocktaildb.com/api/json/v1/1/";
@@ -43,22 +44,71 @@ var mealName = $(".dropdown-MealName");
 var mIngredient = $(".dropdown-MealIngrediant");
 var mCategory = $(".dropdown-MealCategory");
 var mSearch = $(".mealSearchBar");
-var mcategoryDrop = $(".dropdownForMealCategories");
+var mCategoryDrop = $(".dropdownForMealCategories");
 
 //COCKTAIL EVENT LISTENERS
 cocktailName.on("click", nameEventHandler);
 ingredient.on("click", ingredientEventHandler);
-category.on("click", categoryEventHandler);
+// category.on("click", categoryEventHandler);
 
 //MEAL EVENT LISTENERS
 mealName.on("click", mealnameEventHandler);
 mIngredient.on("click", mealingredientEventHandler);
-mCategory.on("click", mealcategoryEventHandler);
+// mCategory.on("click", mealcategoryEventHandler);
 
 //FUNCTIONS FOR MEALS
-function mealnameEventHandler() {}
+function mealnameEventHandler() {
+  mSearch.text("");
+  // mCategoryDrop.attr("hidden", true);
+  mSearch.append("<h2>Search your meal name here!</h2>");
+  mSearch.append(`<input class="mealNameInput" id="userNameInput" />`);
+  mSearch.append("<button class=saveName >Search</button>");
+}
 
-function mealingredientEventHandler() {}
+function mealingredientEventHandler() {
+  mSearch.text("");
+  // mCategoryDrop.attr("hidden", true);
+  mSearch.append("<h2>Search your ingredient name here!</h2>");
+  mSearch.append(`<input class="mealNameInput" id="userIngredientInput" />`);
+  mSearch.append("<button>Search</button>");
+  $(mSearch).on("click", "button", function () {
+    var userInput = $("#userIngredientInput").val();
+    $.ajax({
+      url: mealDBEndpoint + mealDBExtensions.searchByIngredient + userInput,
+
+      method: "GET",
+    }).then((data) => {
+      console.log(data);
+
+      if (data.meals) {
+        var displayRecipes = [];
+        for (const meals of data.meals) {
+          var tempObj = {
+            ingredients: [],
+            measurements: [],
+            mealName: [],
+          };
+          for (const key in meals) {
+            if (meals[key]) {
+              if (key.includes("strIngredient")) {
+                tempObj.ingredients.push(meals[key]);
+              } else {
+                tempObj[key] = meals[key];
+              }
+            }
+          }
+          displayRecipes.push(tempObj);
+        }
+        console.log(displayRecipes);
+        //
+        localStorage.setItem("displayRecipes", JSON.stringify(displayRecipes));
+      } else {
+        alert("Try again");
+        //Append a message to appear saying try again
+      }
+    });
+  });
+}
 
 //Currently unused until I have time to add a category drop down menu
 function mealcategoryEventHandler() {}
@@ -70,7 +120,6 @@ function ingredientEventHandler() {
   search.append("<h2>Search your ingredient name here!</h2>");
   search.append(`<input class="cocktailNameInput" id="userIngredientInput" />`);
   search.append("<button>Search</button>");
-  console.log("ingrediantClicked");
   $(search).on("click", "button", function () {
     var userInput = $("#userIngredientInput").val();
     $.ajax({
@@ -189,7 +238,7 @@ $.ajax({
 
 //PULLING MEALS API DATA
 $.ajax({
-  url: mealCatagories,
+  url: mealIngrediantss,
   method: "GET",
 }).then((data) => {
   console.log(data);
