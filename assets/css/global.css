@@ -9,7 +9,7 @@
 }
 
 body {
-  background: linear-gradient(#ebf4f5, #b5c6e0 );
+  background: linear-gradient(#ebf4f5, #b5c6e0);
   height: 100%;
   margin: 0;
   background-repeat: no-repeat;
@@ -23,10 +23,8 @@ header ul {
   margin: 15px;
 }
 
-
-
-.vh-60 {
-  height: 60vh;
+.vh-80 {
+  height: 80vh;
 }
 
 .header-font {
@@ -85,10 +83,9 @@ footer {
 }
 
 .nav-link {
-  color: var(--white)!important;
+  color: var(--white) !important;
   text-decoration: none;
   font-family: Inconsolata;
-  
 }
 
 .custom-active {
@@ -134,8 +131,7 @@ footer {
   text-transform: capitalize;
   border-radius: 7px;
   width: 25%;
-};
-
+}
 
 /*Searchbar for the cocktail-search page once it is appended via js*/
 .cocktailSearchBar {
@@ -152,10 +148,9 @@ footer {
   float: right;
 }
 
-
 /* DISPLAY RECIPES PAGE */
 .custom-recipe-card-whole {
-  background-color: var(--yellowish)
+  background-color: var(--yellowish);
 }
 .custom-recipe-name {
   color: var(--navy);
@@ -163,7 +158,7 @@ footer {
   text-align: center;
 }
 .custom-recipe-ingredients li {
-  color: var(--navy); 
+  color: var(--navy);
   font-family: Inconsolata;
 }
 .custom-recipe-ingredients button {
