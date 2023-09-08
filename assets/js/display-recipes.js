@@ -8,7 +8,9 @@ let savedRecipes = JSON.parse(localStorage.getItem("savedRecipes")) || [];
 let displayingRecipes =
   JSON.parse(localStorage.getItem("displayRecipes")) || savedRecipes;
 // THE FOLLOWING WILL NEED TO BE REMOVED ONCE I STOP USING MY EXAMPLE CODE
-displayingRecipes = displayingRecipes.meals;
+// displayingRecipes = displayingRecipes.meals;
+
+let shoppingList = JSON.parse(localStorage.getItem("shoppingList")) || [];
 
 // this was to populate example data
 // this page will not pull any api data when it's finished
@@ -44,8 +46,15 @@ function renderPrimaryRecipe(recipe) {
       continue;
     }
     const nextIngredient = recipe[ingredientKey] + " - " + recipe[measureKey];
-    const ingredientEl = $('<li class="list-group-item">');
+    const ingredientEl = $(
+      '<li class="list-group-item d-flex justify-content-between align-items-center">'
+    );
+    ingredientEl.attr("data-childIndex", i);
+    const saveIngredientBtn = $('<button class="btn btn-primary">');
+    saveIngredientBtn.text("+");
+    saveIngredientBtn.on("click", handleSaveIngredient);
     ingredientEl.text(nextIngredient);
+    ingredientEl.append(saveIngredientBtn);
     ingredientsContainerEl.append(ingredientEl);
   }
 }
@@ -57,9 +66,9 @@ function renderRecipeList() {
       '<li class="list-group-item d-flex justify-content-between align-items-center">'
     );
     const saveRecipeBtn = $('<button class="btn btn-primary">');
-    saveRecipeBtn.append($('<i class="fas fa-save" aria-hidden="true"></i>'));
+    saveRecipeBtn.text("save");
     saveRecipeBtn.on("click", handleSaveRecipe);
-    listRecipeEl.data("childIndex", index);
+    listRecipeEl.attr("data-childIndex", index);
     listRecipeEl.text(recipeName);
     listRecipeEl.on("click", handleChangePrimaryRecipe);
     listRecipeEl.append(saveRecipeBtn);
@@ -69,15 +78,15 @@ function renderRecipeList() {
 
 function handleChangePrimaryRecipe(event) {
   let element = $(event.target);
-  let recipeIndex = element.data("childIndex");
-  let newPrimaryRecipe = displayingRecipes[recipeIndex];
-  renderPrimaryRecipe(newPrimaryRecipe);
+  let recipeIndex = element.attr("data-childIndex");
+  primaryRecipe = displayingRecipes[recipeIndex];
+  renderPrimaryRecipe(primaryRecipe);
 }
 
 function handleSaveRecipe(event) {
   let element = $(event.target);
-  let recipeIndex = element.parent().data("childIndex");
-  console.log(recipeIndex);
+  let recipeIndex = element.parent().attr("data-childIndex");
+  // console.log(recipeIndex);
   if (typeof recipeIndex === "undefined") {
     console.log(
       "returning an undefined index. I need to figure out why it ever does that."
@@ -95,4 +104,28 @@ function handleSaveRecipe(event) {
   console.log(savingRecipe);
   console.log(savedRecipes);
   localStorage.setItem("savedRecipes", JSON.stringify(savedRecipes));
+}
+
+function handleSaveIngredient(event) {
+  let element = $(event.target);
+  let ingredient = element.parent().text();
+  let savingIngredient = filterIngredientPair(ingredient);
+  if (shoppingList.includes(savingIngredient)) {
+    console.log("ingredient is already saved");
+    return;
+  }
+  console.log(savingIngredient);
+  shoppingList.push(savingIngredient);
+  localStorage.setItem("shoppingList", JSON.stringify(shoppingList));
+  console.log(shoppingList);
+}
+
+function filterIngredientPair(ingredientText) {
+  let segments = ingredientText.split(" ");
+  let result = "";
+  for (let i = 0; i < segments.length; i++) {
+    if (segments[i].includes("-")) return result.trim();
+    result += segments[i] + " ";
+  }
+  return result.trim();
 }

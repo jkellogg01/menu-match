@@ -9,7 +9,11 @@
 }
 
 body {
-  background: linear-gradient(#ebf4f5, #b5c6e0 )
+  background: linear-gradient(#ebf4f5, #b5c6e0 );
+  height: 100%;
+  margin: 0;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
 }
 header {
   background-color: var(--navy);
@@ -19,27 +23,7 @@ header ul {
   margin: 15px;
 }
 
-.custom-nav-header {
-  font-family: Karla;
-  color: var(--white);
-}
 
-.nav-item {
-  color: var(--white);
-  text-decoration: none;
-  font-family: Inconsolata;
-}
-
-.custom-active {
-  background-color: var(--orange);
-}
-
-.nav-item:hover {
-  background-color: var(--lightBlue);
-  color: var(--navy);
-  box-shadow: inset 1px 1px 10px #a3cde8;
-  border-radius: 5px;
-}
 
 .vh-60 {
   height: 60vh;
@@ -93,6 +77,31 @@ footer {
 }
 /* Landing Page */
 
+.custom-nav-header {
+  font-family: Karla;
+  color: var(--white);
+  box-shadow: 2px 2px 2px 2px #fafbfb;
+  border-radius: 5px;
+}
+
+.nav-link {
+  color: var(--white)!important;
+  text-decoration: none;
+  font-family: Inconsolata;
+  
+}
+
+.custom-active {
+  background-color: var(--orange);
+}
+
+.nav-link:hover {
+  background-color: var(--lightBlue);
+  color: var(--navy);
+  box-shadow: inset 1px 1px 10px #a3cde8;
+  border-radius: 5px;
+}
+
 .custom-button {
   background-color: var(--darkBlue);
   color: var(--white);
@@ -112,7 +121,21 @@ footer {
   font-size: larger;
   text-align: center;
   color: var(--navy);
+  box-shadow: 2px 2px 2px 2px #bdbab8;
 }
+
+.food-and-cocktail-random {
+  box-shadow: 2px 2px 2px 2px #bdbab8;
+}
+.custom-random-card-text {
+  font-family: Karla;
+  color: var(--navy);
+  background-color: var(--yellowish);
+  text-transform: capitalize;
+  border-radius: 7px;
+  width: 25%;
+};
+
 
 /*Searchbar for the cocktail-search page once it is appended via js*/
 .cocktailSearchBar {
@@ -127,4 +150,32 @@ footer {
 /*Using this to move the categories drop down to the right*/
 .dropdownForCategories {
   float: right;
+}
+
+
+/* DISPLAY RECIPES PAGE */
+.custom-recipe-card-whole {
+  background-color: var(--yellowish)
+}
+.custom-recipe-name {
+  color: var(--navy);
+  font-family: Karla;
+  text-align: center;
+}
+.custom-recipe-ingredients li {
+  color: var(--navy); 
+  font-family: Inconsolata;
+}
+.custom-recipe-ingredients button {
+  background-color: var(--navy);
+  border: none;
+}
+
+.custom-recipe-instructions {
+  color: var(--navy);
+}
+
+.custom-other-recipes {
+  background-color: var(--darkBlue);
+  font-family: Inconsolata;
 }
