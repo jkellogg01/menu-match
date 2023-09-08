@@ -88,6 +88,7 @@ function mealnameEventHandler() {
 
 function mealingredientEventHandler() {
   mSearch.text("");
+  search.text("");
   mSearch.append("<h2>Search your ingredient name here!</h2>");
   mSearch.append(`<input class="mealNameInput" id="userIngredientInput" />`);
   mSearch.append("<button>Search</button>");
