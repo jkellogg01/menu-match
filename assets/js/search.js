@@ -11,8 +11,7 @@ const mealDBExtensions = {
   random: "random.php",
 };
 //TESTING TO SEE IF API IS PULLING DATA
-var mealIngrediantss =
-  "https://www.themealdb.com/api/json/v1/1/list.php?i=list";
+var mealnamess = "https://www.themealdb.com/api/json/v1/1/list.php?i=list";
 
 //API FOR COCKTAILS
 const cocktailDBEndpoint = "https://www.thecocktaildb.com/api/json/v1/1/";
@@ -56,6 +55,9 @@ mealName.on("click", mealnameEventHandler);
 mIngredient.on("click", mealingredientEventHandler);
 // mCategory.on("click", mealcategoryEventHandler);
 
+//Currently unused until I have time to add a category drop down menu
+// function mealcategoryEventHandler() {}
+
 //FUNCTIONS FOR MEALS
 function mealnameEventHandler() {
   mSearch.text("");
@@ -63,6 +65,17 @@ function mealnameEventHandler() {
   mSearch.append("<h2>Search your meal name here!</h2>");
   mSearch.append(`<input class="mealNameInput" id="userNameInput" />`);
   mSearch.append("<button class=saveName >Search</button>");
+  $(mSearch).on("click", "button", function () {
+    var userInput = $("#userNameInput").val();
+    $.ajax({
+      url: mealDBEndpoint + mealDBExtensions.searchByName + userInput,
+
+      method: "GET",
+    }).then((data) => {
+      localStorage.setItem("displayRecipes", JSON.stringify(data.meals));
+      $(location).attr("href", "./display-recipes.html");
+    });
+  });
 }
 
 function mealingredientEventHandler() {
@@ -78,40 +91,11 @@ function mealingredientEventHandler() {
 
       method: "GET",
     }).then((data) => {
-      console.log(data);
-
-      if (data.meals) {
-        var displayRecipes = [];
-        for (const meals of data.meals) {
-          var tempObj = {
-            ingredients: [],
-            measurements: [],
-            mealName: [],
-          };
-          for (const key in meals) {
-            if (meals[key]) {
-              if (key.includes("strIngredient")) {
-                tempObj.ingredients.push(meals[key]);
-              } else {
-                tempObj[key] = meals[key];
-              }
-            }
-          }
-          displayRecipes.push(tempObj);
-        }
-        console.log(displayRecipes);
-        //
-        localStorage.setItem("displayRecipes", JSON.stringify(displayRecipes));
-      } else {
-        alert("Try again");
-        //Append a message to appear saying try again
-      }
+      localStorage.setItem("displayRecipes", JSON.stringify(data.meals));
+      $(location).attr("href", "./display-recipes.html");
     });
   });
 }
-
-//Currently unused until I have time to add a category drop down menu
-function mealcategoryEventHandler() {}
 
 //FUNCTIONS FOR COCKTAILS
 function ingredientEventHandler() {
@@ -130,38 +114,8 @@ function ingredientEventHandler() {
 
       method: "GET",
     }).then((data) => {
-      console.log(data);
-
-      if (data.drinks) {
-        var savedDrinks = [];
-        for (const drink of data.drinks) {
-          var tempObj = {
-            ingredients: [],
-            measurements: [],
-            cocktailName: [],
-          };
-          for (const key in drink) {
-            if (drink[key]) {
-              if (key.includes("Ingredient")) {
-                tempObj.ingredients.push(drink[key]);
-              } else if (key.includes("Measure")) {
-                tempObj.measurements.push(drink[key]);
-              } else if (key.includes("strDrink")) {
-                tempObj.cocktailName.push(drink[key]);
-              } else {
-                tempObj[key] = drink[key];
-              }
-            }
-          }
-          savedDrinks.push(tempObj);
-        }
-        console.log(savedDrinks);
-        //
-        localStorage.setItem("savedDrinks", JSON.stringify(savedDrinks));
-      } else {
-        alert("Try again");
-        //Append a message to appear saying try again
-      }
+      localStorage.setItem("displayRecipes", JSON.stringify(data.drinks));
+      $(location).attr("href", "./display-recipes.html");
     });
   });
 }
@@ -181,38 +135,8 @@ function nameEventHandler() {
 
       method: "GET",
     }).then((data) => {
-      console.log(data);
-
-      if (data.drinks) {
-        var savedDrinks = [];
-        for (const drink of data.drinks) {
-          var tempObj = {
-            ingredients: [],
-            measurements: [],
-            cocktailName: [],
-          };
-          for (const key in drink) {
-            if (drink[key]) {
-              if (key.includes("Ingredient")) {
-                tempObj.ingredients.push(drink[key]);
-              } else if (key.includes("Measure")) {
-                tempObj.measurements.push(drink[key]);
-              } else if (key.includes("strDrink")) {
-                tempObj.cocktailName.push(drink[key]);
-              } else {
-                tempObj[key] = drink[key];
-              }
-            }
-          }
-          savedDrinks.push(tempObj);
-        }
-        console.log(savedDrinks);
-        //
-        localStorage.setItem("savedDrinks", JSON.stringify(savedDrinks));
-      } else {
-        alert("Try again");
-        //Append a message to appear saying try again
-      }
+      localStorage.setItem("displayRecipes", JSON.stringify(data.drinks));
+      $(location).attr("href", "./display-recipes.html");
     });
   });
 }
@@ -233,13 +157,13 @@ $.ajax({
   url: cocktailCatagories,
   method: "GET",
 }).then((data) => {
-  console.log(data);
+  // console.log(data);
 });
 
 //PULLING MEALS API DATA
 $.ajax({
-  url: mealIngrediantss,
+  url: mealnamess,
   method: "GET",
 }).then((data) => {
-  console.log(data);
+  // console.log(data);
 });
