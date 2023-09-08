@@ -88,17 +88,14 @@ function mealnameEventHandler() {
 
 function mealingredientEventHandler() {
   mSearch.text("");
-  search.text("");
-  mCategoryDrop.attr("hidden", true);
   mSearch.append("<h2>Search your ingredient name here!</h2>");
   mSearch.append(`<input class="mealNameInput" id="userIngredientInput" />`);
   mSearch.append("<button>Search</button>");
   search.append(`<p class="wrongEntry" />`);
-  $(mSearch).on("click", "button", function () {
+  $(mSearch).on("click", "button", async (event) => {
     var userInput = $("#userIngredientInput").val();
-    $.ajax({
+    const data = await $.ajax({
       url: mealDBEndpoint + mealDBExtensions.searchByIngredient + userInput,
-
       method: "GET",
     }).then((data) => {
       if (!data.drinks) {
@@ -110,6 +107,17 @@ function mealingredientEventHandler() {
       localStorage.setItem("displayRecipes", JSON.stringify(data.meals));
       $(location).attr("href", "./display-recipes.html");
     });
+    let meals = [];
+    for (const value of data.meals) {
+      const complete = await $.ajax({
+        url: mealDBEndpoint + mealDBExtensions.searchByName + value.strMeal,
+        method: "GET",
+      });
+      meals.push(complete.meals[0]);
+    }
+    // console.log(meals);
+    localStorage.setItem("displayRecipes", JSON.stringify(meals));
+    $(location).attr("href", "./display-recipes.html");
   });
 }
 
@@ -122,14 +130,13 @@ function ingredientEventHandler() {
   search.append(`<input class="cocktailNameInput" id="userIngredientInput" />`);
   search.append("<button>Search</button>");
   search.append(`<p class="wrongEntry" />`);
-  $(search).on("click", "button", function () {
+  $(search).on("click", "button", async function () {
     var userInput = $("#userIngredientInput").val();
-    $.ajax({
+    const data = await $.ajax({
       url:
         cocktailDBEndpoint +
         cocktailDBExtensions.searchByIngredient +
         userInput,
-
       method: "GET",
     }).then((data) => {
       if (!data.drinks) {
@@ -141,6 +148,17 @@ function ingredientEventHandler() {
       localStorage.setItem("displayRecipes", JSON.stringify(data.drinks));
       $(location).attr("href", "./display-recipes.html");
     });
+    let drinks = [];
+    for (const value of data.drinks) {
+      const complete = await $.ajax({
+        url: mealDBEndpoint + mealDBExtensions.searchByName + value.strMeal,
+        method: "GET",
+      });
+      drinks.push(complete.drinks[0]);
+    }
+    // console.log(drinks);
+    localStorage.setItem("displayRecipes", JSON.stringify(drinks));
+    $(location).attr("href", "./display-recipes.html");
   });
 }
 
