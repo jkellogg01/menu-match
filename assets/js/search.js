@@ -1,3 +1,4 @@
+//API FOR MEALS
 const mealDBEndpoint = "https://www.themealdb.com/api/json/v1/1/";
 const mealDBExtensions = {
   searchByName: "search.php?s=",
@@ -9,7 +10,10 @@ const mealDBExtensions = {
   listIngredients: "list.php?i=list",
   random: "random.php",
 };
+//TESTING TO SEE IF API IS PULLING DATA
+var mealCatagories = "https://www.themealdb.com/api/json/v1/1/list.php?c=list";
 
+//API FOR COCKTAILS
 const cocktailDBEndpoint = "https://www.thecocktaildb.com/api/json/v1/1/";
 const cocktailDBExtensions = {
   searchByName: "search.php?s=",
@@ -23,21 +27,43 @@ const cocktailDBExtensions = {
   listAlcoholics: "list.php?a=list",
   random: "random.php",
 };
+//TESTING TO SEE IF API IS PULLING DATA
 var cocktailCatagories =
   "https://www.thecocktaildb.com/api/json/v1/1/list.php?c=list";
 
+//COCKTAIL GLOBAL VARIABLES
 var cocktailName = $(".dropdown-name");
 var ingredient = $(".dropdown-ingrediant");
 var category = $(".dropdown-category");
 var search = $(".cocktailSearchBar");
 var categoryDrop = $(".dropdownForCategories");
 
-//EVENT LISTENERS
+// MEAL GLOBAL VARIABLES
+var mealName = $(".dropdown-MealName");
+var mIngredient = $(".dropdown-MealIngrediant");
+var mCategory = $(".dropdown-MealCategory");
+var mSearch = $(".mealSearchBar");
+var mcategoryDrop = $(".dropdownForMealCategories");
+
+//COCKTAIL EVENT LISTENERS
 cocktailName.on("click", nameEventHandler);
 ingredient.on("click", ingredientEventHandler);
 category.on("click", categoryEventHandler);
 
-//FUNCTIONS
+//MEAL EVENT LISTENERS
+mealName.on("click", mealnameEventHandler);
+mIngredient.on("click", mealingredientEventHandler);
+mCategory.on("click", mealcategoryEventHandler);
+
+//FUNCTIONS FOR MEALS
+function mealnameEventHandler() {}
+
+function mealingredientEventHandler() {}
+
+//Currently unused until I have time to add a category drop down menu
+function mealcategoryEventHandler() {}
+
+//FUNCTIONS FOR COCKTAILS
 function ingredientEventHandler() {
   search.text("");
   categoryDrop.attr("hidden", true);
@@ -142,18 +168,29 @@ function nameEventHandler() {
   });
 }
 
-function categoryEventHandler() {
-  search.text("");
-  categoryDrop.attr("hidden", true);
-  categoryDrop.attr("hidden", false);
-  console.log("categoryClicked");
-}
+//Currently unused until I have time to add a category drop down menu
+// function categoryEventHandler() {
+//   search.text("");
+//   categoryDrop.attr("hidden", true);
+//   categoryDrop.attr("hidden", false);
+//   console.log("categoryClicked");
+//   for (let index = 0; index < array.length; index++) {
+//     const element = array[index];
+//   }
+// }
 
+//PULLING COCKTAIL API DATA
 $.ajax({
   url: cocktailCatagories,
   method: "GET",
-  // async: false,
 }).then((data) => {
-  displayingRecipes = data.meals;
-  // console.log(data);
+  console.log(data);
+});
+
+//PULLING MEALS API DATA
+$.ajax({
+  url: mealCatagories,
+  method: "GET",
+}).then((data) => {
+  console.log(data);
 });
