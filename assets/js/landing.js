@@ -39,9 +39,10 @@ function getRandomCocktail () {
     randomCocktailImgEl.attr("src", data.drinks[0].strDrinkThumb);
     randomCocktailName.text(data.drinks[0].strDrink);
     randomCocktailRecipeA.on("click", (event)=>{
+      console.log("Cocktail Click Event")
       var cocktailRandom = data.drinks
       localStorage.setItem("displayRecipes", JSON.stringify(cocktailRandom))
-      $(location).attr("href.","./display-recipes.html");
+      $(location).attr("href","./display-recipes.html");
     })
   });
 };
