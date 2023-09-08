@@ -80,12 +80,15 @@ footer {
 .custom-nav-header {
   font-family: Karla;
   color: var(--white);
+  box-shadow: 2px 2px 2px 2px #fafbfb;
+  border-radius: 5px;
 }
 
 .nav-link {
-  color: var(--white);
+  color: var(--white)!important;
   text-decoration: none;
   font-family: Inconsolata;
+  
 }
 
 .custom-active {
@@ -118,10 +121,12 @@ footer {
   font-size: larger;
   text-align: center;
   color: var(--navy);
-  box-shadow: 10px 10px 10px 10px #f26419;
+  box-shadow: 2px 2px 2px 2px #bdbab8;
 }
 
-
+.food-and-cocktail-random {
+  box-shadow: 2px 2px 2px 2px #bdbab8;
+}
 .custom-random-card-text {
   font-family: Karla;
   color: var(--navy);
