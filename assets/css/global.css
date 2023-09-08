@@ -75,12 +75,21 @@ footer {
 }
 /* Landing Page */
 
+.custom-nav-body {
+  background-color: var(--navy)
+}
+
+.custom-nav-hamburger {
+  color: var(--white);
+}
+
 .custom-nav-header {
   font-family: Karla;
-  color: var(--white);
+  color: var(--white)!important;
   box-shadow: 2px 2px 2px 2px #fafbfb;
   border-radius: 5px;
 }
+
 
 .nav-link {
   color: var(--white) !important;
@@ -90,6 +99,7 @@ footer {
 
 .custom-active {
   background-color: var(--orange);
+  border-radius: 5px;
 }
 
 .nav-link:hover {
