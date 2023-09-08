@@ -99,7 +99,7 @@ function mealingredientEventHandler() {
       url: mealDBEndpoint + mealDBExtensions.searchByIngredient + userInput,
       method: "GET",
     }).then((data) => {
-      if (!data.drinks) {
+      if (!data.meals) {
         $(".wrongEntry").text(
           "Incorrect referance please try refining your search."
         );
