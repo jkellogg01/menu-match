@@ -65,7 +65,7 @@ function mealnameEventHandler() {
   mSearch.append("<h4>Search your meal name here!</h4>");
   mSearch.append(`<input class="mealNameInput" id="userNameInput" />`);
   mSearch.append("<button class=saveName >Search</button>");
-  search.append(`<p class="wrongEntry" />`);
+  mSearch.append(`<p class="wrongEntry" />`);
   $(mSearch).on("click", "button", function () {
     var userInput = $("#userNameInput").val();
     $.ajax({
@@ -87,10 +87,10 @@ function mealnameEventHandler() {
 
 function mealingredientEventHandler() {
   mSearch.text("");
-  mSearch.append("<h4>Search your ingredient name here!</h4>");
+  mSearch.append("<h4>Search your meal ingredients here!</h4>");
   mSearch.append(`<input class="mealNameInput" id="userIngredientInput" />`);
   mSearch.append("<button>Search</button>");
-  search.append(`<p class="wrongEntry" />`);
+  mSearch.append(`<p class="wrongEntry" />`);
   $(mSearch).on("click", "button", async (event) => {
     var userInput = $("#userIngredientInput").val();
     const data = await $.ajax({
@@ -121,7 +121,7 @@ function mealingredientEventHandler() {
 function ingredientEventHandler() {
   search.text("");
   categoryDrop.attr("hidden", true);
-  search.append("<h4>Search your ingredient name here!</h4>");
+  search.append("<h4>Search your cocktail ingredients here!</h4>");
   search.append(`<input class="cocktailNameInput" id="userIngredientInput" />`);
   search.append("<button>Search</button>");
   search.append(`<p class="wrongEntry" />`);
@@ -143,10 +143,13 @@ function ingredientEventHandler() {
     let drinks = [];
     for (const value of data.drinks) {
       const complete = await $.ajax({
-        url: cocktailDBEndpoint + cocktailDBExtensions.searchByName + value.strDrink,
+        url:
+          cocktailDBEndpoint +
+          cocktailDBExtensions.searchByName +
+          value.strDrink,
         method: "GET",
       });
-      console.log(complete)
+      console.log(complete);
       drinks.push(complete.drinks[0]);
     }
     // console.log(drinks);
