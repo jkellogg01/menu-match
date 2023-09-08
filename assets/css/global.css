@@ -151,3 +151,16 @@ footer {
 .dropdownForCategories {
   float: right;
 }
+
+
+/* DISPLAY RECIPES PAGE */
+
+.custom-recipe-ingredients li {
+  color: var(--navy); 
+  font-family: Inconsolata;
+}
+
+.custom-recipe-instructions {
+  background-color: var(--yellowish);
+  color: var(--navy);
+}
