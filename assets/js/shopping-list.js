@@ -1,6 +1,6 @@
 // ================================== localStorage ==================================
 // retrieving data
-const userData = JSON.parse(localStorage.getItem("user"));
+const userData = JSON.parse(localStorage.getItem("shoppingList"));
 console.log(userData);
 // retrieving data
 // localStorage.getItem("");
