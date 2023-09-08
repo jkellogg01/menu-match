@@ -143,12 +143,7 @@ footer {
   width: 25%;
 }
 
-/*Searchbar for the cocktail-search page once it is appended via js*/
-.cocktailSearchBar,
-.mealSearchBar {
-  margin: 15px;
-  float: right;
-}
+
 
 .custom-margin {
   margin-bottom: 100px;
