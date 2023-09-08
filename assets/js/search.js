@@ -32,9 +32,64 @@ var category = $(".dropdown-category");
 var search = $(".cocktailSearchBar");
 var categoryDrop = $(".dropdownForCategories");
 
+//EVENT LISTENERS
 cocktailName.on("click", nameEventHandler);
 ingredient.on("click", ingredientEventHandler);
 category.on("click", categoryEventHandler);
+
+//FUNCTIONS
+function ingredientEventHandler() {
+  search.text("");
+  categoryDrop.attr("hidden", true);
+  search.append("<h2>Search your ingredient name here!</h2>");
+  search.append(`<input class="cocktailNameInput" id="userIngredientInput" />`);
+  search.append("<button>Search</button>");
+  console.log("ingrediantClicked");
+  $(search).on("click", "button", function () {
+    var userInput = $("#userIngredientInput").val();
+    $.ajax({
+      url:
+        cocktailDBEndpoint +
+        cocktailDBExtensions.searchByIngredient +
+        userInput,
+
+      method: "GET",
+    }).then((data) => {
+      console.log(data);
+
+      if (data.drinks) {
+        var savedDrinks = [];
+        for (const drink of data.drinks) {
+          var tempObj = {
+            ingredients: [],
+            measurements: [],
+            cocktailName: [],
+          };
+          for (const key in drink) {
+            if (drink[key]) {
+              if (key.includes("Ingredient")) {
+                tempObj.ingredients.push(drink[key]);
+              } else if (key.includes("Measure")) {
+                tempObj.measurements.push(drink[key]);
+              } else if (key.includes("strDrink")) {
+                tempObj.cocktailName.push(drink[key]);
+              } else {
+                tempObj[key] = drink[key];
+              }
+            }
+          }
+          savedDrinks.push(tempObj);
+        }
+        console.log(savedDrinks);
+        //
+        localStorage.setItem("savedDrinks", JSON.stringify(savedDrinks));
+      } else {
+        alert("Try again");
+        //Append a message to appear saying try again
+      }
+    });
+  });
+}
 
 function nameEventHandler() {
   search.text("");
@@ -42,56 +97,49 @@ function nameEventHandler() {
   search.append("<h2>Search your cocktail name here!</h2>");
   search.append(`<input class="cocktailNameInput" id="userNameInput" />`);
   search.append("<button class=saveName >Search</button>");
-}
+  var saveNameBtn = $("#saveName");
 
-var saveNameBtn = $("#saveName");
+  $(search).on("click", "button", function () {
+    var userInput = $("#userNameInput").val();
+    $.ajax({
+      url: cocktailDBEndpoint + cocktailDBExtensions.searchByName + userInput,
 
-$(search).on("click", "button", function () {
-  var userInput = $("#userNameInput").val();
-  $.ajax({
-    url: cocktailDBEndpoint + cocktailDBExtensions.searchByName + userInput,
-    method: "GET",
-  }).then((data) => {
-    console.log(data);
+      method: "GET",
+    }).then((data) => {
+      console.log(data);
 
-    if (data.drinks) {
-      var savedDrinks = [];
-      for (const drink of data.drinks) {
-        var tempObj = {
-          ingredients: [],
-          measurements: [],
-        };
-        for (const key in drink) {
-          if (drink[key]) {
-            if (key.includes("Ingredient")) {
-              tempObj.ingredients.push(drink[key]);
-            } else if (key.includes("Measure")) {
-              tempObj.measurements.push(drink[key]);
-            } else {
-              tempObj[key] = drink[key];
+      if (data.drinks) {
+        var savedDrinks = [];
+        for (const drink of data.drinks) {
+          var tempObj = {
+            ingredients: [],
+            measurements: [],
+            cocktailName: [],
+          };
+          for (const key in drink) {
+            if (drink[key]) {
+              if (key.includes("Ingredient")) {
+                tempObj.ingredients.push(drink[key]);
+              } else if (key.includes("Measure")) {
+                tempObj.measurements.push(drink[key]);
+              } else if (key.includes("strDrink")) {
+                tempObj.cocktailName.push(drink[key]);
+              } else {
+                tempObj[key] = drink[key];
+              }
             }
           }
+          savedDrinks.push(tempObj);
         }
-        savedDrinks.push(tempObj);
+        console.log(savedDrinks);
+        //
+        localStorage.setItem("savedDrinks", JSON.stringify(savedDrinks));
+      } else {
+        alert("Try again");
+        //Append a message to appear saying try again
       }
-      console.log(savedDrinks);
-      //
-      localStorage.setItem("savedDrinks", JSON.stringify(savedDrinks));
-    } else {
-      alert("Try again");
-      //Append a message saying try again
-      //
-    }
+    });
   });
-});
-
-function ingredientEventHandler() {
-  search.text("");
-  categoryDrop.attr("hidden", true);
-  search.append("<h2>Search your ingredient name here!</h2>");
-  search.append("<input></input>");
-  search.append("<button><a href=./display-recipes.html>Search</a></button>");
-  console.log("ingrediantClicked");
 }
 
 function categoryEventHandler() {
