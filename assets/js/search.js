@@ -61,9 +61,8 @@ mIngredient.on("click", mealingredientEventHandler);
 //FUNCTIONS FOR MEALS
 function mealnameEventHandler() {
   mSearch.text("");
-  search.text("");
   mCategoryDrop.attr("hidden", true);
-  mSearch.append("<h2>Search your meal name here!</h2>");
+  mSearch.append("<h4>Search your meal name here!</h4>");
   mSearch.append(`<input class="mealNameInput" id="userNameInput" />`);
   mSearch.append("<button class=saveName >Search</button>");
   search.append(`<p class="wrongEntry" />`);
@@ -88,8 +87,7 @@ function mealnameEventHandler() {
 
 function mealingredientEventHandler() {
   mSearch.text("");
-  search.text("");
-  mSearch.append("<h2>Search your ingredient name here!</h2>");
+  mSearch.append("<h4>Search your ingredient name here!</h4>");
   mSearch.append(`<input class="mealNameInput" id="userIngredientInput" />`);
   mSearch.append("<button>Search</button>");
   search.append(`<p class="wrongEntry" />`);
@@ -122,9 +120,8 @@ function mealingredientEventHandler() {
 //FUNCTIONS FOR COCKTAILS
 function ingredientEventHandler() {
   search.text("");
-  mSearch.text("");
   categoryDrop.attr("hidden", true);
-  search.append("<h2>Search your ingredient name here!</h2>");
+  search.append("<h4>Search your ingredient name here!</h4>");
   search.append(`<input class="cocktailNameInput" id="userIngredientInput" />`);
   search.append("<button>Search</button>");
   search.append(`<p class="wrongEntry" />`);
@@ -160,9 +157,8 @@ function ingredientEventHandler() {
 
 function nameEventHandler() {
   search.text("");
-  mSearch.text("");
   categoryDrop.attr("hidden", true);
-  search.append("<h2>Search your cocktail name here!</h2>");
+  search.append("<h4>Search your cocktail name here!</h4>");
   search.append(`<input class="cocktailNameInput" id="userNameInput" />`);
   search.append("<button class=saveName >Search</button>");
   search.append(`<p class="wrongEntry" />`);
