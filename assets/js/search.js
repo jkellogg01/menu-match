@@ -72,6 +72,10 @@ function mealnameEventHandler() {
 
       method: "GET",
     }).then((data) => {
+      if (!data.drinks) {
+        alert("your wrong");
+        return;
+      }
       localStorage.setItem("displayRecipes", JSON.stringify(data.meals));
       $(location).attr("href", "./display-recipes.html");
     });
@@ -91,6 +95,10 @@ function mealingredientEventHandler() {
 
       method: "GET",
     }).then((data) => {
+      if (!data.drinks) {
+        alert("your wrong");
+        return;
+      }
       localStorage.setItem("displayRecipes", JSON.stringify(data.meals));
       $(location).attr("href", "./display-recipes.html");
     });
@@ -114,6 +122,10 @@ function ingredientEventHandler() {
 
       method: "GET",
     }).then((data) => {
+      if (!data.drinks) {
+        alert("your wrong");
+        return;
+      }
       localStorage.setItem("displayRecipes", JSON.stringify(data.drinks));
       $(location).attr("href", "./display-recipes.html");
     });
@@ -135,6 +147,10 @@ function nameEventHandler() {
 
       method: "GET",
     }).then((data) => {
+      if (!data.drinks) {
+        alert("your wrong");
+        return;
+      }
       localStorage.setItem("displayRecipes", JSON.stringify(data.drinks));
       $(location).attr("href", "./display-recipes.html");
     });
