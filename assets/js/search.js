@@ -98,16 +98,13 @@ function mealingredientEventHandler() {
     const data = await $.ajax({
       url: mealDBEndpoint + mealDBExtensions.searchByIngredient + userInput,
       method: "GET",
-    }).then((data) => {
-      if (!data.drinks) {
-        $(".wrongEntry").text(
-          "Incorrect referance please try refining your search."
-        );
-        return;
-      }
-      localStorage.setItem("displayRecipes", JSON.stringify(data.meals));
-      $(location).attr("href", "./display-recipes.html");
     });
+    if (!data.meals) {
+      $(".wrongEntry").text(
+        "Incorrect reference, please try refining your search."
+      );
+      return;
+    }
     let meals = [];
     for (const value of data.meals) {
       const complete = await $.ajax({
