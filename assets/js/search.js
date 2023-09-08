@@ -61,10 +61,12 @@ mIngredient.on("click", mealingredientEventHandler);
 //FUNCTIONS FOR MEALS
 function mealnameEventHandler() {
   mSearch.text("");
-  // mCategoryDrop.attr("hidden", true);
+  search.text("");
+  mCategoryDrop.attr("hidden", true);
   mSearch.append("<h2>Search your meal name here!</h2>");
   mSearch.append(`<input class="mealNameInput" id="userNameInput" />`);
   mSearch.append("<button class=saveName >Search</button>");
+  search.append(`<p class="wrongEntry" />`);
   $(mSearch).on("click", "button", function () {
     var userInput = $("#userNameInput").val();
     $.ajax({
@@ -73,7 +75,9 @@ function mealnameEventHandler() {
       method: "GET",
     }).then((data) => {
       if (!data.drinks) {
-        alert("your wrong");
+        $(".wrongEntry").text(
+          "Incorrect referance please try refining your search."
+        );
         return;
       }
       localStorage.setItem("displayRecipes", JSON.stringify(data.meals));
@@ -84,10 +88,12 @@ function mealnameEventHandler() {
 
 function mealingredientEventHandler() {
   mSearch.text("");
-  // mCategoryDrop.attr("hidden", true);
+  search.text("");
+  mCategoryDrop.attr("hidden", true);
   mSearch.append("<h2>Search your ingredient name here!</h2>");
   mSearch.append(`<input class="mealNameInput" id="userIngredientInput" />`);
   mSearch.append("<button>Search</button>");
+  search.append(`<p class="wrongEntry" />`);
   $(mSearch).on("click", "button", function () {
     var userInput = $("#userIngredientInput").val();
     $.ajax({
@@ -96,7 +102,9 @@ function mealingredientEventHandler() {
       method: "GET",
     }).then((data) => {
       if (!data.drinks) {
-        alert("your wrong");
+        $(".wrongEntry").text(
+          "Incorrect referance please try refining your search."
+        );
         return;
       }
       localStorage.setItem("displayRecipes", JSON.stringify(data.meals));
@@ -108,10 +116,12 @@ function mealingredientEventHandler() {
 //FUNCTIONS FOR COCKTAILS
 function ingredientEventHandler() {
   search.text("");
+  mSearch.text("");
   categoryDrop.attr("hidden", true);
   search.append("<h2>Search your ingredient name here!</h2>");
   search.append(`<input class="cocktailNameInput" id="userIngredientInput" />`);
   search.append("<button>Search</button>");
+  search.append(`<p class="wrongEntry" />`);
   $(search).on("click", "button", function () {
     var userInput = $("#userIngredientInput").val();
     $.ajax({
@@ -123,7 +133,9 @@ function ingredientEventHandler() {
       method: "GET",
     }).then((data) => {
       if (!data.drinks) {
-        alert("your wrong");
+        $(".wrongEntry").text(
+          "Incorrect referance please try refining your search."
+        );
         return;
       }
       localStorage.setItem("displayRecipes", JSON.stringify(data.drinks));
@@ -134,10 +146,12 @@ function ingredientEventHandler() {
 
 function nameEventHandler() {
   search.text("");
+  mSearch.text("");
   categoryDrop.attr("hidden", true);
   search.append("<h2>Search your cocktail name here!</h2>");
   search.append(`<input class="cocktailNameInput" id="userNameInput" />`);
   search.append("<button class=saveName >Search</button>");
+  search.append(`<p class="wrongEntry" />`);
   var saveNameBtn = $("#saveName");
 
   $(search).on("click", "button", function () {
@@ -148,7 +162,9 @@ function nameEventHandler() {
       method: "GET",
     }).then((data) => {
       if (!data.drinks) {
-        alert("your wrong");
+        $(".wrongEntry").text(
+          "Incorrect referance please try refining your search."
+        );
         return;
       }
       localStorage.setItem("displayRecipes", JSON.stringify(data.drinks));
