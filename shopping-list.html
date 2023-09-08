@@ -13,7 +13,8 @@
       crossorigin="anonymous"
     />
     <link rel="stylesheet" href="./assets/css/global.css" />
-    <title>Menu Match 🍊</title>
+    <title>Menu Match</title>
+    <link rel="icon" href="./assets/images/favicon.ico" type="image/x-icon">
   </head>
   <!-- ================ body ===============-->
   <body>
@@ -30,7 +31,7 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
           <ul class="navbar-nav me-auto mb-2 mb-lg-0 fs-4">
             <li class="nav-item">
-              <a class="nav-link custom-active" aria-current="page" href="index.html">Home</a>
+              <a class="nav-link" aria-current="page" href="index.html">Home</a>
             </li>
             <li class="nav-item">
               <a class="nav-link" href="drink-search.html">Search for Recipe</a>
@@ -39,7 +40,7 @@
               <a class="nav-link" href="#">Saved Recipes</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="shopping-list.html">Shopping List</a>
+              <a class="nav-link custom-active" href="shopping-list.html">Shopping List</a>
             </li>
           </ul>
         </div>
@@ -51,16 +52,17 @@
         </div>
         <!--========== meal search bar========== -->
         
-        <div class="container d-flex justify-content-center my-5">
+        <!-- <div class="container d-flex justify-content-center my-5">
             <input type="text" name="" id="muserInput" class="form-control w-50" placeholder="Search your meal...">
             <button id="mbtn" class="btn btn-warning">Search</button>
-        </div>
+        </div> -->
+         <!--========== meal search bar end========== -->
         <!--========== cocktail search bar========== -->
-        <div class="container d-flex justify-content-center my-5">
+        <!-- <div class="container d-flex justify-content-center my-5">
             <input type="text" name="" id="duserInput" class="form-control w-50" placeholder="Search your cocktail...">
             <button id="dbtn" class="btn btn-warning">Search</button>
-        </div>
-        <!--========== meal list card ========== -->
+        </div> -->
+        <!--========== cocktail search bar end ========== -->
     <div class="container" id="appendData" >
         <div class="pricing-header p-3 pb-md-4 mx-auto text-center">
             <h1 class="display-4 fw-normal text-body-emphasis">Shopping List</h1>
@@ -68,9 +70,9 @@
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Vero, incidunt.
             </p>
         </div>
+   
     
-    
-    
+        
         <div class="row row-cols-1 row-cols-md-3 mb-3 text-center justify-content-center">
           <div class="col">
             <div class="card mb-4 rounded-3 shadow-sm">
@@ -78,17 +80,17 @@
                 <h4 class="my-0 fw-normal">Your List</h4>
               </div>
               <div class="card-body">
-                <ul class="list-unstyled mt-3 mb-4">
-                  <li>Recipe</li>
-                  <li>Recipe</li>
-                  <li>Recipe</li>
-                  <li>Recipe</li>
-                  <li>Recipe</li>
+                <ul class="list-unstyled mt-3 mb-4" id="recipe-list">
+                  <!-- <li></li>
+                  <li></li>
+                  <li></li>
+                  <li></li>
+                  <li></li> -->
                 </ul>
             </div>
             <div class="card-body"> 
                 <button type="button" class="btn w-100  btn-lg btn-primary">
-                  Save List
+                  List
                 </button>
             </div>
             </div>
