@@ -1,6 +1,8 @@
-// meal search bar
+// ================================== localStorage ==================================
+
+// ================================== meal search bar ==================================
 document.getElementById("btn").addEventListener("click", () => {
-  let user = document.getElementById("userInput").value;
+  let user = document.getElementById("muserInput").value;
 
   let mealAPI = fetch(
     `https://www.themealdb.com/api/json/v1/1/search.php?s=${user}`
@@ -46,9 +48,9 @@ document.getElementById("btn").addEventListener("click", () => {
     });
 });
 
-// cocktail search Bar
+//  ================================== cocktail search Bar  ==================================
 document.getElementById("btn").addEventListener("click", () => {
-  let user = document.getElementById("userInput").value;
+  let user = document.getElementById("duserInput").value;
 
   let drinkAPI = fetch(
     `https://www.thecocktaildb.com/api/json/v1/1/search.php?s=${user}`
