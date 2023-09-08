@@ -13,7 +13,7 @@ function renderShoppingList() {
   //     var value = userData[i];
   //   }
   userData.forEach((value) => {
-    let recipeName = value;
+    let listName = value;
     const shoppingList = $('<li class="list-group-item">');
     // ======= save button functionality ======
     // const saveRecipeBtn = $('<button class="btn btn-primary">');
@@ -23,7 +23,7 @@ function renderShoppingList() {
     //
     //shoppingList.attr("data-childIndex", index);
     //
-    shoppingList.text(recipeName);
+    shoppingList.text(listName);
     // shoppingList.on("click", handleChangePrimaryRecipe);
     //
     // shoppingList.append(saveRecipeBtn);
