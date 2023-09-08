@@ -21,7 +21,7 @@ randomFoodName.text(data.meals[0].strMeal);
     randomFoodRecipeA.on("click", (event)=> {
       var recipeRandom = data.meals
       localStorage.setItem("displayRecipes", JSON.stringify(recipeRandom))
-      location.replace("./display-recipes.html");
+      $(location).attr("href","./display-recipes.html");
     })
   });
 };
@@ -41,7 +41,7 @@ function getRandomCocktail () {
     randomCocktailRecipeA.on("click", (event)=>{
       var cocktailRandom = data.drinks
       localStorage.setItem("displayRecipes", JSON.stringify(cocktailRandom))
-      location.replace("./display-recipes.html");
+      $(location).attr("href.","./display-recipes.html");
     })
   });
 };
