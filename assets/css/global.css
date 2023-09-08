@@ -154,13 +154,28 @@ footer {
 
 
 /* DISPLAY RECIPES PAGE */
-
+.custom-recipe-card-whole {
+  background-color: var(--yellowish)
+}
+.custom-recipe-name {
+  color: var(--navy);
+  font-family: Karla;
+  text-align: center;
+}
 .custom-recipe-ingredients li {
   color: var(--navy); 
   font-family: Inconsolata;
 }
+.custom-recipe-ingredients button {
+  background-color: var(--navy);
+  border: none;
+}
 
 .custom-recipe-instructions {
-  background-color: var(--yellowish);
   color: var(--navy);
+}
+
+.custom-other-recipes {
+  background-color: var(--darkBlue);
+  font-family: Inconsolata;
 }
