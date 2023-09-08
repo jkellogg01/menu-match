@@ -134,7 +134,8 @@ footer {
 }
 
 /*Searchbar for the cocktail-search page once it is appended via js*/
-.cocktailSearchBar {
+.cocktailSearchBar,
+.mealSearchBar {
   margin: 15px;
   float: right;
 }
