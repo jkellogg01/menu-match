@@ -80,20 +80,27 @@ function mealnameEventHandler() {
 
 function mealingredientEventHandler() {
   mSearch.text("");
-  // mCategoryDrop.attr("hidden", true);
   mSearch.append("<h2>Search your ingredient name here!</h2>");
   mSearch.append(`<input class="mealNameInput" id="userIngredientInput" />`);
   mSearch.append("<button>Search</button>");
-  $(mSearch).on("click", "button", function () {
+  $(mSearch).on("click", "button", async (event) => {
     var userInput = $("#userIngredientInput").val();
-    $.ajax({
+    const data = await $.ajax({
       url: mealDBEndpoint + mealDBExtensions.searchByIngredient + userInput,
-
       method: "GET",
-    }).then((data) => {
-      localStorage.setItem("displayRecipes", JSON.stringify(data.meals));
-      $(location).attr("href", "./display-recipes.html");
     });
+    // .then((data) => {
+    let meals = [];
+    for (const value of data.meals) {
+      const complete = await $.ajax({
+        url: mealDBEndpoint + mealDBExtensions.searchByName + value.strMeal,
+        method: "GET",
+      });
+      meals.push(complete.meals[0]);
+    }
+    console.log(meals);
+    localStorage.setItem("displayRecipes", JSON.stringify(meals));
+    $(location).attr("href", "./display-recipes.html");
   });
 }
 

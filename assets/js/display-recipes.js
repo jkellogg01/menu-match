@@ -26,7 +26,6 @@ let shoppingList = JSON.parse(localStorage.getItem("shoppingList")) || [];
 // });
 
 let primaryRecipe = displayingRecipes[0];
-console.log(primaryRecipe);
 renderPrimaryRecipe(primaryRecipe);
 renderRecipeList();
 
