@@ -1,8 +1,17 @@
 // ================================== localStorage ==================================
-// retrieving data
+
+const ingredientsContainerEl = $("#ingredients");
+// ========= data in browser=========
+$(document).ready(function () {
+  $("ul").append($("<li>").html("Scooter"));
+});
+// const input = document.getElementById("item");
+
+// =========retrieving data=========
 const userData = JSON.parse(localStorage.getItem("shoppingList"));
 console.log(userData);
-// retrieving data
+
+//=========retrieving data end=========
 // localStorage.getItem("");
 // ================================== meal search bar ==================================
 document.getElementById("mbtn").addEventListener("click", () => {
