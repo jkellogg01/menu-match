@@ -146,9 +146,10 @@ function ingredientEventHandler() {
     let drinks = [];
     for (const value of data.drinks) {
       const complete = await $.ajax({
-        url: mealDBEndpoint + mealDBExtensions.searchByName + value.strMeal,
+        url: cocktailDBEndpoint + cocktailDBExtensions.searchByName + value.strDrink,
         method: "GET",
       });
+      console.log(complete)
       drinks.push(complete.drinks[0]);
     }
     // console.log(drinks);
