@@ -5,6 +5,7 @@ const userData = JSON.parse(localStorage.getItem("shoppingList"));
 console.log(userData);
 //=========retrieving data end=========
 
+//=========displaying data=========
 const shoppingListContainer = $("#recipe-list");
 
 function renderShoppingList() {
@@ -30,6 +31,7 @@ function renderShoppingList() {
   });
 }
 renderShoppingList();
+// =========displaying data end=========
 
 // ===============================================================================
 
