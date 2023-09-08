@@ -50,20 +50,20 @@ document.getElementById("btn").addEventListener("click", () => {
 document.getElementById("btn").addEventListener("click", () => {
   let user = document.getElementById("userInput").value;
 
-  let mealAPI = fetch(
+  let drinkAPI = fetch(
     `https://www.thecocktaildb.com/api/json/v1/1/search.php?s=${user}`
   );
-  mealAPI
+  drinkAPI
     .then((getData) => {
       return getData.json();
     })
     .then((sendData) => {
       console.log(sendData);
       let data = "";
-      sendData.meals.forEach((e) => {
+      sendData.drinks.forEach((e) => {
         data += `
           <div class="card-body">
-              <img src="${e.strMealThumb}" alt="" class="rounded img-fluid">
+              <img src="${e.strDrinkThumb}" alt="" class="rounded img-fluid">
           </div>
           <div class="card-body">
                   <ul class="list-unstyled mt-3 mb-4">
