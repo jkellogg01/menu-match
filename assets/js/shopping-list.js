@@ -1,5 +1,9 @@
 // ================================== localStorage ==================================
-
+// retrieving data
+const userData = JSON.parse(localStorage.getItem("user"));
+console.log(userData);
+// retrieving data
+// localStorage.getItem("");
 // ================================== meal search bar ==================================
 document.getElementById("mbtn").addEventListener("click", () => {
   let user = document.getElementById("muserInput").value;
