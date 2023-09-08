@@ -46,171 +46,153 @@
       </div>
     </nav>
 
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inconsolata&family=Karla&display=swap" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous" />
+  <link rel="stylesheet" href="./assets/css/global.css" />
+  <title>Menu Match 🍊</title>
+</head>
 
-
-    <div class="dropdown">
-      <button
-        class="btn btn-secondary dropdown-toggle"
-        type="button"
-        data-bs-toggle="dropdown"
-        aria-expanded="false"
-      >
-        Choose how to search for a drink!
+<body>
+  <nav class="navbar navbar-expand-lg custom-nav-body d-flex py-3  border-bottom">
+    <div class="container-fluid">
+      <svg class="bi me-2" width="60" height="60">
+        <a href="./index.html">
+          <img src="./assets/images/logo60x60.jpg" alt="" style="border-radius: 7px;" class="me-3" />
+      </svg>
+      <a class="navbar-brand custom-nav-header fs-1" href="#">Menu Match</a>
+      <button class="navbar-toggler bg-light" type="button" data-bs-toggle="collapse"
+        data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+        aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
       </button>
-      <ul class="dropdown-menu">
-        <li class="dropdown-name">Name</li>
-        <li><a class="dropdown-ingrediant" href="#">Ingredient</a></li>
-        <!-- Underneath is code to incorporate a drop down menu by category if time allows-->
-        <!-- <li><a class="dropdown-category" href="#">Category</a></li> -->
-      </ul>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0 fs-4">
+          <li class="nav-item">
+            <a class="nav-link custom-active" aria-current="page" href="index.html">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="drink-search.html">Search for Recipe</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Saved Recipes</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="shopping-list.html">Shopping List</a>
+          </li>
+        </ul>
+      </div>
     </div>
-    <div class="cocktailSearchBar">
-<a href="./display-recipes.html"></a>
+  </nav>
+
+  <br>
+  <div class="d-flex flex-wrap justify-content-center align-items-center m-15rem container">
+    <div class="row column-gap-5">
+      <div class="card col-lg-5 col-md-7 col-sm-7" style="">
+        <img src="./assets/images/CheersCocktailsUnspash.jpg" class="card-img-top" alt="...">
+        <div class="card-body">
+          <p class="card-text">
+          <div class="dropdown">
+            <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown"
+              aria-expanded="false">
+              Choose how to search for a drink!
+            </button>
+            <ul class="dropdown-menu">
+              <li class="dropdown-name">Name</li>
+              <li><a class="dropdown-ingrediant" href="#">Ingredient</a></li>
+            </ul>
+          </div>
+          <div class="cocktailSearchBar">
+            <a href="./display-recipes.html"></a>
+          </div>
+          </p>
+        </div>
+      </div>
+
+      <div class="card col-lg-5 col-md-7 col-sm-7" style="">
+        <img src="./assets/images/CheersCocktailsUnspash.jpg" class="card-img-top" alt="...">
+        <div class="card-body">
+          <p class="card-text">
+          <div class="dropdown">
+            <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown"
+              aria-expanded="false">
+              Choose how to search for a meal!
+            </button>
+            <ul class="dropdown-menu">
+              <li class="dropdown-MealName">Name</li>
+              <li><a class="dropdown-MealIngrediant" href="#">Ingredient</a></li>
+            </ul>
+          </div>
+          <div class="mealSearchBar">
+            <a href="./display-recipes.html"></a>
+          </div>
+          </p>
+        </div>
+      </div>
     </div>
-
-  <!-- Drop down category option made in case we have time -->
-  <!-- <div hidden class="dropdownForCategories" >
-    <button
-      class="btn btn-secondary dropdown-toggle"
-      type="button"
-      data-bs-toggle="dropdown"
-      aria-expanded="false"
-    >
-      Select a category!
-    </button>
-    <ul class=>
-      <li><a href="#">A for loop to include all categorys will append here!</a></li>
-    </ul>
-    <button><a href="./display-recipes.html">Search!</a></button>
   </div>
-    <div class="container">
-    </div>
-     -->
-    
-    
-    
-     <div class="dropdown">
-      <button
-      class="btn btn-secondary dropdown-toggle"
-      type="button"
-      data-bs-toggle="dropdown"
-      aria-expanded="false"
-      >
-      Choose how to search for a meal!
-    </button>
-    <ul class="dropdown-menu">
-      <li class="dropdown-MealName">Name</li>
-      <li><a class="dropdown-MealIngrediant" href="#">Ingredient</a></li>
-      <!-- Underneath is code to incorporate a drop down menu by category if time allows-->
-      <!-- <li><a class="dropdown-MealCategory" href="#">Category</a></li> -->
-    </ul>
-  </div>
-  <div class="mealSearchBar">
-    <a href="./display-recipes.html"></a>
-  </div>
-  
-
-    <!-- Drop down category option made in case we have time -->
-  <!-- <div hidden class="dropdownForMealCategories" >
-    <button
-      class="btn btn-secondary dropdown-toggle"
-      type="button"
-      data-bs-toggle="dropdown"
-      aria-expanded="false"
-    >
-      Select a category!
-    </button>
-    <ul class=>
-      <li><a href="#">A for loop to include all categorys will append here!</a></li>
-    </ul>
-    <button><a href="./display-recipes.html">Search!</a></button>
-  </div>
-    <div class="container">
-    </div>
-     -->
-
-
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-     <footer class=" fixed-bottom d-flex flex-wrap justify-content-between align-items-center py-3  border-top">
+   
+    <footer class=" fixed-bottom d-flex flex-wrap justify-content-between align-items-center py-3 border-top">
       <!--  =======================company text  =======================-->
-              <p class="col-md-4 mb-0 text-body-secondary">
-                &copy; 2023 Menu Match, Inc
-              </p>
+      <p class="col-md-4 mb-0 text-body-secondary">
+        &copy; 2023 Menu Match, Inc
+      </p>
       <!--  =======================company logo  =======================-->
-              <a
-                href="./index.html"
-                class="col-md-4 d-flex align-items-center justify-content-center mb-3 mb-md-0 me-md-auto link-body-emphasis text-decoration-none"
-              >
-              <svg class="bi me-2" width="40" height="32">
-                  <img src="./assets/images/M  M.jpg" alt="logo" style="border-radius:7px;">
-              </svg>
-              </a>
+      <a href="./index.html"
+        class="col-md-4 d-flex align-items-center justify-content-center mb-3 mb-md-0 me-md-auto link-body-emphasis text-decoration-none">
+        <svg class="bi me-2" width="40" height="32">
+          <img src="./assets/images/M  M.jpg" alt="logo" style="border-radius:7px;">
+        </svg>
+      </a>
       <!--  ======================= footer nav =======================-->
-        <ul class="nav col-md-4 ">
-          <li class="nav-item">
-            <a href="index.html" class="nav-link px-2 text-body-secondary">Home</a>
-          </li>
-          <li class="nav-item">
-            <a href="drink-search.html" class="nav-link px-2 text-body-secondary">Search for Recipe</a>
-          </li>
-          <li class="nav-item">
-            <a href="display-recipes.html" class="nav-link px-2 text-body-secondary">Saved Recipes</a>
-          </li>
-          <li class="nav-item">
-            <a href="shopping-list.html" class="nav-link px-2 text-body-secondary">Shopping List</a>
-          </li>
+      <ul class="nav col-md-4 ">
+        <li class="nav-item">
+          <a href="index.html" class="nav-link px-2 text-body-secondary">Home</a>
+        </li>
+        <li class="nav-item">
+          <a href="drink-search.html" class="nav-link px-2 text-body-secondary">Search for Recipe</a>
+        </li>
+        <li class="nav-item">
+          <a href="display-recipes.html" class="nav-link px-2 text-body-secondary">Saved Recipes</a>
+        </li>
+        <li class="nav-item">
+          <a href="shopping-list.html" class="nav-link px-2 text-body-secondary">Shopping List</a>
+        </li>
       </ul>
-  </footer>
+    </footer>
 
-  <!-- ======================= night day logos =======================-->
-  <svg xmlns="http://www.w3.org/2000/svg" class="d-none">
+    <!-- ======================= night day logos =======================-->
+    <svg xmlns="http://www.w3.org/2000/svg" class="d-none">
       <symbol id="check2" viewBox="0 0 16 16">
         <path
-          d="M13.854 3.646a.5.5 0 0 1 0 .708l-7 7a.5.5 0 0 1-.708 0l-3.5-3.5a.5.5 0 1 1 .708-.708L6.5 10.293l6.646-6.647a.5.5 0 0 1 .708 0z"
-        />
+          d="M13.854 3.646a.5.5 0 0 1 0 .708l-7 7a.5.5 0 0 1-.708 0l-3.5-3.5a.5.5 0 1 1 .708-.708L6.5 10.293l6.646-6.647a.5.5 0 0 1 .708 0z" />
       </symbol>
       <symbol id="circle-half" viewBox="0 0 16 16">
         <path d="M8 15A7 7 0 1 0 8 1v14zm0 1A8 8 0 1 1 8 0a8 8 0 0 1 0 16z" />
       </symbol>
       <symbol id="moon-stars-fill" viewBox="0 0 16 16">
         <path
-          d="M6 .278a.768.768 0 0 1 .08.858 7.208 7.208 0 0 0-.878 3.46c0 4.021 3.278 7.277 7.318 7.277.527 0 1.04-.055 1.533-.16a.787.787 0 0 1 .81.316.733.733 0 0 1-.031.893A8.349 8.349 0 0 1 8.344 16C3.734 16 0 12.286 0 7.71 0 4.266 2.114 1.312 5.124.06A.752.752 0 0 1 6 .278z"
-        />
+          d="M6 .278a.768.768 0 0 1 .08.858 7.208 7.208 0 0 0-.878 3.46c0 4.021 3.278 7.277 7.318 7.277.527 0 1.04-.055 1.533-.16a.787.787 0 0 1 .81.316.733.733 0 0 1-.031.893A8.349 8.349 0 0 1 8.344 16C3.734 16 0 12.286 0 7.71 0 4.266 2.114 1.312 5.124.06A.752.752 0 0 1 6 .278z" />
         <path
-          d="M10.794 3.148a.217.217 0 0 1 .412 0l.387 1.162c.173.518.579.924 1.097 1.097l1.162.387a.217.217 0 0 1 0 .412l-1.162.387a1.734 1.734 0 0 0-1.097 1.097l-.387 1.162a.217.217 0 0 1-.412 0l-.387-1.162A1.734 1.734 0 0 0 9.31 6.593l-1.162-.387a.217.217 0 0 1 0-.412l1.162-.387a1.734 1.734 0 0 0 1.097-1.097l.387-1.162zM13.863.099a.145.145 0 0 1 .274 0l.258.774c.115.346.386.617.732.732l.774.258a.145.145 0 0 1 0 .274l-.774.258a1.156 1.156 0 0 0-.732.732l-.258.774a.145.145 0 0 1-.274 0l-.258-.774a1.156 1.156 0 0 0-.732-.732l-.774-.258a.145.145 0 0 1 0-.274l.774-.258c.346-.115.617-.386.732-.732L13.863.1z"
-        />
+          d="M10.794 3.148a.217.217 0 0 1 .412 0l.387 1.162c.173.518.579.924 1.097 1.097l1.162.387a.217.217 0 0 1 0 .412l-1.162.387a1.734 1.734 0 0 0-1.097 1.097l-.387 1.162a.217.217 0 0 1-.412 0l-.387-1.162A1.734 1.734 0 0 0 9.31 6.593l-1.162-.387a.217.217 0 0 1 0-.412l1.162-.387a1.734 1.734 0 0 0 1.097-1.097l.387-1.162zM13.863.099a.145.145 0 0 1 .274 0l.258.774c.115.346.386.617.732.732l.774.258a.145.145 0 0 1 0 .274l-.774.258a1.156 1.156 0 0 0-.732.732l-.258.774a.145.145 0 0 1-.274 0l-.258-.774a1.156 1.156 0 0 0-.732-.732l-.774-.258a.145.145 0 0 1 0-.274l.774-.258c.346-.115.617-.386.732-.732L13.863.1z" />
       </symbol>
       <symbol id="sun-fill" viewBox="0 0 16 16">
         <path
-          d="M8 12a4 4 0 1 0 0-8 4 4 0 0 0 0 8zM8 0a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-1 0v-2A.5.5 0 0 1 8 0zm0 13a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-1 0v-2A.5.5 0 0 1 8 13zm8-5a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1 0-1h2a.5.5 0 0 1 .5.5zM3 8a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1 0-1h2A.5.5 0 0 1 3 8zm10.657-5.657a.5.5 0 0 1 0 .707l-1.414 1.415a.5.5 0 1 1-.707-.708l1.414-1.414a.5.5 0 0 1 .707 0zm-9.193 9.193a.5.5 0 0 1 0 .707L3.05 13.657a.5.5 0 0 1-.707-.707l1.414-1.414a.5.5 0 0 1 .707 0zm9.193 2.121a.5.5 0 0 1-.707 0l-1.414-1.414a.5.5 0 0 1 .707-.707l1.414 1.414a.5.5 0 0 1 0 .707zM4.464 4.465a.5.5 0 0 1-.707 0L2.343 3.05a.5.5 0 1 1 .707-.707l1.414 1.414a.5.5 0 0 1 0 .708z"
-        />
+          d="M8 12a4 4 0 1 0 0-8 4 4 0 0 0 0 8zM8 0a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-1 0v-2A.5.5 0 0 1 8 0zm0 13a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-1 0v-2A.5.5 0 0 1 8 13zm8-5a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1 0-1h2a.5.5 0 0 1 .5.5zM3 8a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1 0-1h2A.5.5 0 0 1 3 8zm10.657-5.657a.5.5 0 0 1 0 .707l-1.414 1.415a.5.5 0 1 1-.707-.708l1.414-1.414a.5.5 0 0 1 .707 0zm-9.193 9.193a.5.5 0 0 1 0 .707L3.05 13.657a.5.5 0 0 1-.707-.707l1.414-1.414a.5.5 0 0 1 .707 0zm9.193 2.121a.5.5 0 0 1-.707 0l-1.414-1.414a.5.5 0 0 1 .707-.707l1.414 1.414a.5.5 0 0 1 0 .707zM4.464 4.465a.5.5 0 0 1-.707 0L2.343 3.05a.5.5 0 1 1 .707-.707l1.414 1.414a.5.5 0 0 1 0 .708z" />
       </symbol>
-  </svg> 
-    <script
-      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"
+    </svg>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"
       integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm"
-      crossorigin="anonymous"
-    ></script>
-    <script
-      src="https://code.jquery.com/jquery-3.7.1.min.js"
-      integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo="
-      crossorigin="anonymous"
-    ></script>
+      crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"
+      integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
     <script src="./assets/js/saved-recipes-nav.js"></script>
     <script src="./assets/js/search.js"></script>
-  </body>
+</body>
+
 </html>
