@@ -1,7 +1,7 @@
 // ================================== localStorage ==================================
 
 // ================================== meal search bar ==================================
-document.getElementById("btn").addEventListener("click", () => {
+document.getElementById("mbtn").addEventListener("click", () => {
   let user = document.getElementById("muserInput").value;
 
   let mealAPI = fetch(
@@ -49,7 +49,7 @@ document.getElementById("btn").addEventListener("click", () => {
 });
 
 //  ================================== cocktail search Bar  ==================================
-document.getElementById("btn").addEventListener("click", () => {
+document.getElementById("dbtn").addEventListener("click", () => {
   let user = document.getElementById("duserInput").value;
 
   let drinkAPI = fetch(
@@ -74,21 +74,7 @@ document.getElementById("btn").addEventListener("click", () => {
                     <li>${e.strIngredient3}</li>
                     <li>${e.strIngredient4}</li>
                     <li>${e.strIngredient5}</li>
-                    <li>${e.strIngredient6}</li>
-                    <li>${e.strIngredient7}</li>
-                    <li>${e.strIngredient8}</li>
-                    <li>${e.strIngredient9}</li>
-                    <li>${e.strIngredient10}</li>
-                    <li>${e.strIngredient11}</li>
-                    <li>${e.strIngredient12}</li>
-                    <li>${e.strIngredient13}</li>
-                    <li>${e.strIngredient14}</li>
-                    <li>${e.strIngredient15}</li>
-                    <li>${e.strIngredient16}</li>
-                    <li>${e.strIngredient17}</li>
-                    <li>${e.strIngredient18}</li>
-                    <li>${e.strIngredient19}</li>
-                    <li>${e.strIngredient20}</li>
+                   
                   </ul>
               </div>`;
         appendData.innerHTML = data;
