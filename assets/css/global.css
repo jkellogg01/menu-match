@@ -174,3 +174,24 @@ footer {
   background-color: var(--darkBlue);
   font-family: Inconsolata;
 }
+
+#hidden-other-el {
+  display:none;
+}
+
+@media screen and (max-width: 768px) { 
+  /* .custom-other-recipes {
+    padding-bottom: 500px !important;
+  } */
+  /* #hidden-other-el {
+    display:block;
+    padding-top: 10px !important; */
+  }
+  /* footer {
+    /* position: static !important; */
+    /* position:static !important; */
+    /* left: 0;
+    right:0; */
+  /* } */ 
+  
+
