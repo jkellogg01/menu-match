@@ -136,16 +136,13 @@ function ingredientEventHandler() {
         cocktailDBExtensions.searchByIngredient +
         userInput,
       method: "GET",
-    }).then((data) => {
-      if (!data.drinks) {
-        $(".wrongEntry").text(
-          "Incorrect referance please try refining your search."
-        );
-        return;
-      }
-      localStorage.setItem("displayRecipes", JSON.stringify(data.drinks));
-      $(location).attr("href", "./display-recipes.html");
     });
+    if (!data.drinks) {
+      $(".wrongEntry").text(
+        "Incorrect referance please try refining your search."
+      );
+      return;
+    }
     let drinks = [];
     for (const value of data.drinks) {
       const complete = await $.ajax({
