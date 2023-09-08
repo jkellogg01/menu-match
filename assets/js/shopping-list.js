@@ -1,5 +1,12 @@
-document.getElementById("btn").addEventListener("click", () => {
-  let user = document.getElementById("userInput").value;
+// ================================== localStorage ==================================
+// retrieving data
+const userData = JSON.parse(localStorage.getItem("shoppingList"));
+console.log(userData);
+// retrieving data
+// localStorage.getItem("");
+// ================================== meal search bar ==================================
+document.getElementById("mbtn").addEventListener("click", () => {
+  let user = document.getElementById("muserInput").value;
 
   let mealAPI = fetch(
     `https://www.themealdb.com/api/json/v1/1/search.php?s=${user}`
@@ -40,6 +47,40 @@ document.getElementById("btn").addEventListener("click", () => {
                   <li>${e.strIngredient20}</li>
                 </ul>
             </div>`;
+        appendData.innerHTML = data;
+      });
+    });
+});
+
+//  ================================== cocktail search Bar  ==================================
+document.getElementById("dbtn").addEventListener("click", () => {
+  let user = document.getElementById("duserInput").value;
+
+  let drinkAPI = fetch(
+    `https://www.thecocktaildb.com/api/json/v1/1/search.php?s=${user}`
+  );
+  drinkAPI
+    .then((getData) => {
+      return getData.json();
+    })
+    .then((sendData) => {
+      console.log(sendData);
+      let data = "";
+      sendData.drinks.forEach((e) => {
+        data += `
+          <div class="card-body">
+              <img src="${e.strDrinkThumb}" alt="" class="rounded img-fluid">
+          </div>
+          <div class="card-body">
+                  <ul class="list-unstyled mt-3 mb-4">
+                    <li>${e.strIngredient1}</li>
+                    <li>${e.strIngredient2}</li>
+                    <li>${e.strIngredient3}</li>
+                    <li>${e.strIngredient4}</li>
+                    <li>${e.strIngredient5}</li>
+                   
+                  </ul>
+              </div>`;
         appendData.innerHTML = data;
       });
     });
