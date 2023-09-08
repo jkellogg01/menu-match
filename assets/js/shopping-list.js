@@ -1,16 +1,36 @@
 // ================================== localStorage ==================================
 
-const ingredientsContainerEl = $("#ingredients");
-
 // =========retrieving data=========
 const userData = JSON.parse(localStorage.getItem("shoppingList"));
 console.log(userData);
 //=========retrieving data end=========
 
-// ========= data in browser=========
-let displayingRecipes =
-  JSON.parse(localStorage.getItem("displayRecipes")) || savedRecipes;
-// localStorage.getItem("");
+const shoppingListContainer = $("#recipe-list");
+
+function renderShoppingList() {
+  //   for (let i = 0; i < userData.length; i++) {
+  //     var value = userData[i];
+  //   }
+  userData.forEach((value) => {
+    let recipeName = value;
+    const shoppingList = $('<li class="list-group-item">');
+    // ======= save button functionality ======
+    // const saveRecipeBtn = $('<button class="btn btn-primary">');
+    // saveRecipeBtn.text("save");
+    // saveRecipeBtn.on("click", handleSaveRecipe);
+    //
+    //
+    //shoppingList.attr("data-childIndex", index);
+    //
+    shoppingList.text(recipeName);
+    // shoppingList.on("click", handleChangePrimaryRecipe);
+    //
+    // shoppingList.append(saveRecipeBtn);
+    shoppingListContainer.append(shoppingList);
+  });
+}
+renderShoppingList();
+
 // ===============================================================================
 
 // ================================== meal search bar ==================================
