@@ -61,10 +61,12 @@ mIngredient.on("click", mealingredientEventHandler);
 //FUNCTIONS FOR MEALS
 function mealnameEventHandler() {
   mSearch.text("");
-  // mCategoryDrop.attr("hidden", true);
+  search.text("");
+  mCategoryDrop.attr("hidden", true);
   mSearch.append("<h2>Search your meal name here!</h2>");
   mSearch.append(`<input class="mealNameInput" id="userNameInput" />`);
   mSearch.append("<button class=saveName >Search</button>");
+  search.append(`<p class="wrongEntry" />`);
   $(mSearch).on("click", "button", function () {
     var userInput = $("#userNameInput").val();
     $.ajax({
@@ -72,6 +74,12 @@ function mealnameEventHandler() {
 
       method: "GET",
     }).then((data) => {
+      if (!data.drinks) {
+        $(".wrongEntry").text(
+          "Incorrect referance please try refining your search."
+        );
+        return;
+      }
       localStorage.setItem("displayRecipes", JSON.stringify(data.meals));
       $(location).attr("href", "./display-recipes.html");
     });
@@ -83,11 +91,21 @@ function mealingredientEventHandler() {
   mSearch.append("<h2>Search your ingredient name here!</h2>");
   mSearch.append(`<input class="mealNameInput" id="userIngredientInput" />`);
   mSearch.append("<button>Search</button>");
+  search.append(`<p class="wrongEntry" />`);
   $(mSearch).on("click", "button", async (event) => {
     var userInput = $("#userIngredientInput").val();
     const data = await $.ajax({
       url: mealDBEndpoint + mealDBExtensions.searchByIngredient + userInput,
       method: "GET",
+    }).then((data) => {
+      if (!data.drinks) {
+        $(".wrongEntry").text(
+          "Incorrect referance please try refining your search."
+        );
+        return;
+      }
+      localStorage.setItem("displayRecipes", JSON.stringify(data.meals));
+      $(location).attr("href", "./display-recipes.html");
     });
     let meals = [];
     for (const value of data.meals) {
@@ -106,10 +124,12 @@ function mealingredientEventHandler() {
 //FUNCTIONS FOR COCKTAILS
 function ingredientEventHandler() {
   search.text("");
+  mSearch.text("");
   categoryDrop.attr("hidden", true);
   search.append("<h2>Search your ingredient name here!</h2>");
   search.append(`<input class="cocktailNameInput" id="userIngredientInput" />`);
   search.append("<button>Search</button>");
+  search.append(`<p class="wrongEntry" />`);
   $(search).on("click", "button", async function () {
     var userInput = $("#userIngredientInput").val();
     const data = await $.ajax({
@@ -118,6 +138,15 @@ function ingredientEventHandler() {
         cocktailDBExtensions.searchByIngredient +
         userInput,
       method: "GET",
+    }).then((data) => {
+      if (!data.drinks) {
+        $(".wrongEntry").text(
+          "Incorrect referance please try refining your search."
+        );
+        return;
+      }
+      localStorage.setItem("displayRecipes", JSON.stringify(data.drinks));
+      $(location).attr("href", "./display-recipes.html");
     });
     let drinks = [];
     for (const value of data.drinks) {
@@ -135,10 +164,12 @@ function ingredientEventHandler() {
 
 function nameEventHandler() {
   search.text("");
+  mSearch.text("");
   categoryDrop.attr("hidden", true);
   search.append("<h2>Search your cocktail name here!</h2>");
   search.append(`<input class="cocktailNameInput" id="userNameInput" />`);
   search.append("<button class=saveName >Search</button>");
+  search.append(`<p class="wrongEntry" />`);
   var saveNameBtn = $("#saveName");
 
   $(search).on("click", "button", function () {
@@ -148,6 +179,12 @@ function nameEventHandler() {
 
       method: "GET",
     }).then((data) => {
+      if (!data.drinks) {
+        $(".wrongEntry").text(
+          "Incorrect referance please try refining your search."
+        );
+        return;
+      }
       localStorage.setItem("displayRecipes", JSON.stringify(data.drinks));
       $(location).attr("href", "./display-recipes.html");
     });

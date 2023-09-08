@@ -70,7 +70,7 @@ footer {
 /* ============================== secondary colors ======================================== */
 
 .text-body-secondary {
-  --bs-secondary-color: var(--black);
+  --bs-secondary-color: var(--white);
   --bs-nav-link-disabled-color: var(--bs-secondary-color);
 }
 /* Landing Page */
@@ -134,7 +134,8 @@ footer {
 }
 
 /*Searchbar for the cocktail-search page once it is appended via js*/
-.cocktailSearchBar {
+.cocktailSearchBar,
+.mealSearchBar {
   margin: 15px;
   float: right;
 }
