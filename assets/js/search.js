@@ -73,9 +73,9 @@ function mealnameEventHandler() {
 
       method: "GET",
     }).then((data) => {
-      if (!data.drinks) {
+      if (!data.meals) {
         $(".wrongEntry").text(
-          "Incorrect referance please try refining your search."
+          "Incorrect referance please try refining your search. Example: Lasagne, Wontons, Poutine, ect."
         );
         return;
       }
@@ -99,7 +99,7 @@ function mealingredientEventHandler() {
     });
     if (!data.meals) {
       $(".wrongEntry").text(
-        "Incorrect reference, please try refining your search."
+        "Incorrect reference, please try refining your search. Example: Chicken, Salmon, Pork, ect."
       );
       return;
     }
@@ -124,7 +124,7 @@ function ingredientEventHandler() {
   search.append("<h4>Search your cocktail ingredients here!</h4>");
   search.append(`<input class="cocktailNameInput" id="userIngredientInput" />`);
   search.append("<button>Search</button>");
-  search.append(`<p class="wrongEntry" />`);
+  search.append(`<p class="dWrongEntry" />`);
   $(search).on("click", "button", async function () {
     var userInput = $("#userIngredientInput").val();
     const data = await $.ajax({
@@ -135,8 +135,8 @@ function ingredientEventHandler() {
       method: "GET",
     });
     if (!data.drinks) {
-      $(".wrongEntry").text(
-        "Incorrect referance please try refining your search."
+      $(".dWrongEntry").text(
+        "Incorrect referance please try refining your search. Example: pineapple juice, ginger, lime, coffee, ect."
       );
       return;
     }
@@ -164,7 +164,7 @@ function nameEventHandler() {
   search.append("<h4>Search your cocktail name here!</h4>");
   search.append(`<input class="cocktailNameInput" id="userNameInput" />`);
   search.append("<button class=saveName >Search</button>");
-  search.append(`<p class="wrongEntry" />`);
+  search.append(`<p class="dWrongEntry" />`);
   var saveNameBtn = $("#saveName");
 
   $(search).on("click", "button", function () {
@@ -175,8 +175,8 @@ function nameEventHandler() {
       method: "GET",
     }).then((data) => {
       if (!data.drinks) {
-        $(".wrongEntry").text(
-          "Incorrect referance please try refining your search."
+        $(".dWrongEntry").text(
+          "Incorrect referance please try refining your search. Example: Old fashion, Margarita, Moranguito, ect."
         );
         return;
       }
