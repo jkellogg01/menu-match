@@ -62,7 +62,7 @@ mIngredient.on("click", mealingredientEventHandler);
 function mealnameEventHandler() {
   mSearch.text("");
   mCategoryDrop.attr("hidden", true);
-  mSearch.append("<h4>Search your meal name here!</h4>");
+  mSearch.append("<h4>Type the Name of a Meal</h4>");
   mSearch.append(`<input class="mealNameInput" id="userNameInput" />`);
   mSearch.append("<button class=saveName >Search</button>");
   mSearch.append(`<p class="wrongEntry" />`);
@@ -75,7 +75,7 @@ function mealnameEventHandler() {
     }).then((data) => {
       if (!data.drinks) {
         $(".wrongEntry").text(
-          "Incorrect referance please try refining your search."
+          "Incorrect reference please try refining your search."
         );
         return;
       }
@@ -87,7 +87,7 @@ function mealnameEventHandler() {
 
 function mealingredientEventHandler() {
   mSearch.text("");
-  mSearch.append("<h4>Search your meal ingredients here!</h4>");
+  mSearch.append("<h4>Type a Meal Ingredient</h4>");
   mSearch.append(`<input class="mealNameInput" id="userIngredientInput" />`);
   mSearch.append("<button>Search</button>");
   mSearch.append(`<p class="wrongEntry" />`);
@@ -121,7 +121,7 @@ function mealingredientEventHandler() {
 function ingredientEventHandler() {
   search.text("");
   categoryDrop.attr("hidden", true);
-  search.append("<h4>Search your cocktail ingredients here!</h4>");
+  search.append("<h4>Type a Cocktail Ingredient</h4>");
   search.append(`<input class="cocktailNameInput" id="userIngredientInput" />`);
   search.append("<button>Search</button>");
   search.append(`<p class="wrongEntry" />`);
@@ -136,7 +136,7 @@ function ingredientEventHandler() {
     });
     if (!data.drinks) {
       $(".wrongEntry").text(
-        "Incorrect referance please try refining your search."
+        "Incorrect reference please try refining your search."
       );
       return;
     }
@@ -161,7 +161,7 @@ function ingredientEventHandler() {
 function nameEventHandler() {
   search.text("");
   categoryDrop.attr("hidden", true);
-  search.append("<h4>Search your cocktail name here!</h4>");
+  search.append("<h4>Type the Name of a Cocktail</h4>");
   search.append(`<input class="cocktailNameInput" id="userNameInput" />`);
   search.append("<button class=saveName >Search</button>");
   search.append(`<p class="wrongEntry" />`);
@@ -176,7 +176,7 @@ function nameEventHandler() {
     }).then((data) => {
       if (!data.drinks) {
         $(".wrongEntry").text(
-          "Incorrect referance please try refining your search."
+          "Incorrect reference please try refining your search."
         );
         return;
       }

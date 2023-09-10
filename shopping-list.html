@@ -22,14 +22,14 @@
         <div class="container-fluid">
             <svg class="bi me-2" width="60" height="60">
             <a href="./index.html">
-            <img src="./assets/images/logo60x60.jpg" alt="" style="border-radius: 7px;" class="me-3" />
+            <img src="./assets/images/logo60x60.jpg" alt="Menu Match Logo" style="border-radius: 7px;" class="me-3" />
             </svg>
-        <a class="navbar-brand custom-nav-header fs-1" href="#">Menu Match</a>
+        <a class="navbar-brand custom-nav-header fs-1" href="index.html">Menu Match</a>
         <button class="navbar-toggler bg-light" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
-          <ul class="navbar-nav me-auto mb-2 mb-lg-0 fs-4">
+          <ul class="navbar-nav me-auto mb-2 mb-lg-0 fs-5">
             <li class="nav-item">
               <a class="nav-link" aria-current="page" href="index.html">Home</a>
             </li>
@@ -37,7 +37,7 @@
               <a class="nav-link" href="drink-search.html">Search for Recipe</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#">Saved Recipes</a>
+              <a class="nav-link" id="saved-recipes" href="#">Saved Recipes</a>
             </li>
             <li class="nav-item">
               <a class="nav-link custom-active" href="shopping-list.html">Shopping List</a>
@@ -48,9 +48,10 @@
     </nav>
 <!-- ================ nav bar end ===============-->
         <!--============================ shopping list ============================ =-->
-        <div
+        <!-- <div
             class="d-flex flex-column flex-md-row align-items-center pb-3 mb-4 border-bottom">
-        </div>
+        </div> -->
+        <!-- This line is visible, could make user think their screen is broken. -->
         <!--========== meal search bar========== -->
         
         <!-- <div class="container d-flex justify-content-center my-5">
@@ -65,10 +66,10 @@
         </div> -->
         <!--========== cocktail search bar end ========== -->
     <div class="container" id="appendData" >
-        <div class="pricing-header p-3 pb-md-4 mx-auto text-center">
-            <h1 class="display-4 fw-normal text-body-emphasis">Shopping List</h1>
-            <p class="fs-5 text-body-secondary text-body-emphasis">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Vero, incidunt.
+        <div class="pricing-header p-3 pb-md-4 mx-auto text-center mt-5">
+            <h1 class="shopping-list-header">Shopping List</h1>
+            <p class="shopping-list-blurb">
+            FEATURES OF THIS LIST - CHANGE 
             </p>
         </div>
    
@@ -76,12 +77,12 @@
         
         <div class="row row-cols-1 row-cols-md-3 mb-3 text-center justify-content-center">
           <div class="col">
-            <div class="card mb-4 rounded-3 shadow-sm">
-              <div class="card-header py-3">
-                <h4 class="my-0 fw-normal">Your List</h4>
+            <div class="card mb-4 rounded-3 shopping-list-whole">
+              <div class="card-header py-3 shopping-list-title">
+                <h4 class="fs-3">Ingredients</h4>
               </div>
               <div class="card-body">
-                <ul class="list-unstyled mt-3 mb-4" id="recipe-list">
+                <ul class="list-unstyled mt-3 mb-3 shopping-list-ingredients fs-4 list-group-flush overflow-auto" id="recipe-list">
                   <!-- <li></li>
                   <li></li>
                   <li></li>
@@ -98,122 +99,15 @@
           </div>
         </div>
     
-        <h2 class="display-6 text-center mb-4">Enjoy
+        <!-- <h2 class="display-6 text-center mb-4">Enjoy -->
     
         </h2> 
     </div>
     <!--============================ shopping list end ============================ =-->
 
 
-
-     
-<!-- ======================= night day logos =======================-->
-<!-- <svg xmlns="http://www.w3.org/2000/svg" class="d-none">
-    <symbol id="check2" viewBox="0 0 16 16">
-      <path
-        d="M13.854 3.646a.5.5 0 0 1 0 .708l-7 7a.5.5 0 0 1-.708 0l-3.5-3.5a.5.5 0 1 1 .708-.708L6.5 10.293l6.646-6.647a.5.5 0 0 1 .708 0z"
-      />
-    </symbol>
-    <symbol id="circle-half" viewBox="0 0 16 16">
-      <path d="M8 15A7 7 0 1 0 8 1v14zm0 1A8 8 0 1 1 8 0a8 8 0 0 1 0 16z" />
-    </symbol>
-    <symbol id="moon-stars-fill" viewBox="0 0 16 16">
-      <path
-        d="M6 .278a.768.768 0 0 1 .08.858 7.208 7.208 0 0 0-.878 3.46c0 4.021 3.278 7.277 7.318 7.277.527 0 1.04-.055 1.533-.16a.787.787 0 0 1 .81.316.733.733 0 0 1-.031.893A8.349 8.349 0 0 1 8.344 16C3.734 16 0 12.286 0 7.71 0 4.266 2.114 1.312 5.124.06A.752.752 0 0 1 6 .278z"
-      />
-      <path
-        d="M10.794 3.148a.217.217 0 0 1 .412 0l.387 1.162c.173.518.579.924 1.097 1.097l1.162.387a.217.217 0 0 1 0 .412l-1.162.387a1.734 1.734 0 0 0-1.097 1.097l-.387 1.162a.217.217 0 0 1-.412 0l-.387-1.162A1.734 1.734 0 0 0 9.31 6.593l-1.162-.387a.217.217 0 0 1 0-.412l1.162-.387a1.734 1.734 0 0 0 1.097-1.097l.387-1.162zM13.863.099a.145.145 0 0 1 .274 0l.258.774c.115.346.386.617.732.732l.774.258a.145.145 0 0 1 0 .274l-.774.258a1.156 1.156 0 0 0-.732.732l-.258.774a.145.145 0 0 1-.274 0l-.258-.774a1.156 1.156 0 0 0-.732-.732l-.774-.258a.145.145 0 0 1 0-.274l.774-.258c.346-.115.617-.386.732-.732L13.863.1z"
-      />
-    </symbol>
-    <symbol id="sun-fill" viewBox="0 0 16 16">
-      <path
-        d="M8 12a4 4 0 1 0 0-8 4 4 0 0 0 0 8zM8 0a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-1 0v-2A.5.5 0 0 1 8 0zm0 13a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-1 0v-2A.5.5 0 0 1 8 13zm8-5a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1 0-1h2a.5.5 0 0 1 .5.5zM3 8a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1 0-1h2A.5.5 0 0 1 3 8zm10.657-5.657a.5.5 0 0 1 0 .707l-1.414 1.415a.5.5 0 1 1-.707-.708l1.414-1.414a.5.5 0 0 1 .707 0zm-9.193 9.193a.5.5 0 0 1 0 .707L3.05 13.657a.5.5 0 0 1-.707-.707l1.414-1.414a.5.5 0 0 1 .707 0zm9.193 2.121a.5.5 0 0 1-.707 0l-1.414-1.414a.5.5 0 0 1 .707-.707l1.414 1.414a.5.5 0 0 1 0 .707zM4.464 4.465a.5.5 0 0 1-.707 0L2.343 3.05a.5.5 0 1 1 .707-.707l1.414 1.414a.5.5 0 0 1 0 .708z"
-      />
-    </symbol>
-</svg>  -->
-<!-- ======================= night day BUTTON later add on=======================-->
-<!-- <div
-  class=" dropdown position-fixed bottom-0 end-0  me-3 mb-3 bd-mode-toggle"
->
-  <button
-    class="btn btn-bd-primary py-2 dropdown-toggle d-flex align-items-center"
-    id="bd-theme"
-    type="button"
-    aria-expanded="false"
-    data-bs-toggle="dropdown"
-    aria-label="Toggle theme (auto)"
-  >
-    <svg class="bi my-1 theme-icon-active" width="1em" height="1em">
-      <use href="#circle-half"></use>
-    </svg>
-    <span class="visually-hidden" id="bd-theme-text">Toggle theme</span>
-  </button> -->
-  <!-- ======================= drop down menu ======================= -->
-  <!-- <ul
-    class="dropdown-menu dropdown-menu-end shadow"
-    aria-labelledby="bd-theme-text"
-  > -->
-<!-- =======================light button======================= -->
-    <!-- <li>
-      <button
-        type="button"
-        class="dropdown-item d-flex align-items-center"
-        data-bs-theme-value="light"
-        aria-pressed="false"
-      >
-        <svg class="bi me-2 opacity-50 theme-icon" width="1em" height="1em">
-          <use href="#sun-fill"></use>
-        </svg>
-        Light
-        <svg class="bi ms-auto d-none" width="1em" height="1em">
-          <use href="#check2"></use>
-        </svg>
-      </button>
-    </li> -->
-<!-- =======================dark button======================= -->
-    <!-- <li>
-      <button
-        type="button"
-        class="dropdown-item d-flex align-items-center"
-        data-bs-theme-value="dark"
-        aria-pressed="false"
-      >
-        <svg class="bi me-2 opacity-50 theme-icon" width="1em" height="1em">
-          <use href="#moon-stars-fill"></use>
-        </svg>
-        Dark
-        <svg class="bi ms-auto d-none" width="1em" height="1em">
-          <use href="#check2"></use>
-        </svg>
-      </button>
-    </li> -->
-<!-- =======================auto button======================= -->
-    <!-- <li>
-
-      <button
-        type="button"
-        class="dropdown-item d-flex align-items-center active"
-        data-bs-theme-value="auto"
-        aria-pressed="true"
-      >
-        <svg class="bi me-2 opacity-50 theme-icon" width="1em" height="1em">
-          <use href="#circle-half"></use>
-        </svg>
-        Auto
-        <svg class="bi ms-auto d-none" width="1em" height="1em">
-          <use href="#check2"></use>
-        </svg>
-      </button>
-    </li>
-  </ul> 
-</div> -->
-
-<div class="container">
-    <div
-    class="d-flex flex-column flex-md-row align-items-center pb-3 mb-4 border-bottom">
-  </div>
 <!--  ======================= footer =======================-->
-  <footer class=" col-12 fixed-bottom d-flex flex-wrap justify-content-between align-items-center py-1  border-top">
+  <footer class=" d-flex flex-wrap justify-content-between align-items-center py-1 border-top">
 <!--  =======================company text  =======================-->
       <p class="col-md-4 mb-0 text-body-secondary header-font">
         &copy; 2023 Menu Match, Inc
@@ -243,7 +137,6 @@
         </li>
       </ul>
   </footer>
-  </div>
 <!-- =======================scripts color and bundle======================= -->
     <script
       src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"
@@ -255,7 +148,6 @@
     integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo="
     crossorigin="anonymous"
   ></script>
-    <script src="./assets/js/color-modes.js"></script>
     <script src="./assets/js/saved-recipes-nav.js"></script>
     <script src="./assets/js/shopping-list.js"></script>
   </body>
