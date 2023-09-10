@@ -116,3 +116,8 @@ renderShoppingList();
 //       });
 //     });
 // });
+
+
+$( function() {
+  $( "#sortable" ).sortable();
+} );
