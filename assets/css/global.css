@@ -167,7 +167,11 @@ footer {
 .custom-search-card button {
 font-family: Karla;
 background-color: var(--navy);
+color: var(--white);
 border: none;
+border-radius: 5px;
+margin-left: 10px;
+padding: 5px;
 }
 
 .custom-search-card button:hover {
@@ -188,7 +192,12 @@ border: none;
   color: var(--white);
 }
 
-
+.custom-search-card h4 {
+  font-family: Karla;
+  color: var(--navy);
+  margin-bottom: 10px;
+  margin-top: 10px;
+}
 
 /* DISPLAY RECIPES PAGE */
 .custom-recipe-card-whole {
