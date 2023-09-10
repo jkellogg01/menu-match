@@ -9,7 +9,7 @@ var randomFoodName = $("#random-food-name");
 
 
 
-
+//Function is used to get random food photo and name, append on landing page photo card and then direct user to the random food recipe on the saved recipe page if they click the button "Access this Recipe"
 function getRandomFood() {
   $.ajax({
     url: mealDBEndpoint + mealDBExtensions.random,
@@ -27,7 +27,7 @@ randomFoodName.text(data.meals[0].strMeal);
 };
 
 
-
+//Function is used to get random cocktail photo and name, append on landing page photo card and then direct user to the random cocktail recipe on the saved recipe page if they click the button "Access this Cocktail"
 
 function getRandomCocktail () {
   $.ajax ({
