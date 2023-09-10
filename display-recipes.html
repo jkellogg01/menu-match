@@ -33,12 +33,12 @@
           <a href="./index.html">
             <img src="./assets/images/logo60x60.jpg" alt="" style="border-radius: 7px;" class="me-3" />
         </svg>
-        <a class="navbar-brand custom-nav-header fs-1" href="#">Menu Match</a>
+        <a class="navbar-brand custom-nav-header fs-1" href="index.html">Menu Match</a>
         <button class="navbar-toggler bg-light" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
-          <ul class="navbar-nav me-auto mb-2 mb-lg-0 fs-4">
+          <ul class="navbar-nav me-auto mb-2 mb-lg-0 fs-5">
             <li class="nav-item">
               <a class="nav-link" aria-current="page" href="index.html">Home</a>
             </li>
@@ -46,7 +46,7 @@
               <a class="nav-link" href="drink-search.html">Search for Recipe</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link custom-active" href="#">Saved Recipes</a>
+              <a class="nav-link custom-active" id="saved-recipes" href="#">Saved Recipes</a>
             </li>
             <li class="nav-item">
               <a class="nav-link" href="shopping-list.html">Shopping List</a>
@@ -57,7 +57,7 @@
     </nav>
     <main class="container custom-margin">
       <div class="row gap-5 m-5 vh-80">
-        <div class="card col-12 col-md-7 py-3 mh-100        custom-recipe-card-whole ">
+        <div class="card col-12 col-md-7 py-3 mh-100        custom-recipe-card-whole">
           <div class="row">
             <div class="col-12 col-xl-4 mb-3">
               <img id="recipe-thumbnail" class="rounded mh-100 mw-100" />
@@ -79,7 +79,7 @@
             prep instructions
           </div>
         </div>
-        <div class="card mh-100 col-md-4 mh-100 custom-other-recipes">
+        <div class="card mh-100 col-md-4 custom-other-recipes">
           <ul
             id="recipe-list"
             class="list-group list-group-flush overflow-auto m-2"
@@ -90,8 +90,7 @@
       </div>
     </main>
 
-    <div class="container">
-      <footer class=" col-12 fixed-bottom d-flex flex-wrap justify-content-between align-items-center py-1  border-top">
+      <footer class="d-flex flex-wrap justify-content-between align-items-center py-1 border-top">
   <!--  =======================company text  =======================-->
           <p class="col-md-4 mb-0 text-body-secondary header-font">
             &copy; 2023 Menu Match, Inc
@@ -114,14 +113,14 @@
               <a href="drink-search.html" class="nav-link px-2 text-body-secondary">Search for Recipe</a>
             </li>
             <li class="nav-item">
-              <a href="display-recipes.html" class="nav-link px-2 text-body-secondary">Saved Recipes</a>
+              <a href="#" id="saved-recipes" class="nav-link px-2 text-body-secondary">Saved Recipes</a>
             </li>
             <li class="nav-item">
               <a href="shopping-list.html" class="nav-link px-2 text-body-secondary">Shopping List</a>
             </li>
           </ul>
       </footer>
-      </div>
+
     <script
       src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"
       integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm"
