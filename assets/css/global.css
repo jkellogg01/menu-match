@@ -145,19 +145,55 @@ footer {
 }
 
 
-
 .custom-margin {
   margin-bottom: 100px;
 }
 
+
+/* SEARCH RECIPES PAGE */
 /*Using this to move the categories drop down to the right*/
 .dropdownForCategories {
   float: right;
 }
 
+.custom-search-card {
+  background-color: var(--yellowish);
+  text-align: center;
+  padding:0; 
+  border: none;
+  box-shadow: 2px 2px 2px 2px #bdbab8;
+}
+
+.custom-search-card button {
+font-family: Karla;
+background-color: var(--navy);
+border: none;
+}
+
+.custom-search-card button:hover {
+  background-color: var(--lightBlue);
+  color: var(--navy);
+  box-shadow: inset 1px 1px 10px #a3cde8; 
+}
+
+.custom-search-card ul {
+  font-family: Karla;
+  background-color: var(--lightBlue);
+  color: var(--navy);
+  font-size: 1.5rem;
+}
+
+.custom-search-card li:hover {
+  background-color: var(--navy);
+  color: var(--white);
+}
+
+
+
 /* DISPLAY RECIPES PAGE */
 .custom-recipe-card-whole {
   background-color: var(--yellowish);
+  box-shadow: 2px 2px 2px 2px #bdbab8;
 }
 .custom-recipe-name {
   color: var(--navy);
@@ -173,6 +209,12 @@ footer {
   border: none;
 }
 
+.custom-recipe-ingredients button:hover {
+  background-color: var(--lightBlue);
+  color: var(--navy);
+  box-shadow: inset 1px 1px 10px #a3cde8; 
+}
+
 .custom-recipe-instructions {
   color: var(--navy);
 }
@@ -180,6 +222,20 @@ footer {
 .custom-other-recipes {
   background-color: var(--darkBlue);
   font-family: Inconsolata;
+  box-shadow: 2px 2px 2px 2px #bdbab8;
+}
+
+.custom-other-recipes button {
+  background-color: var(--navy);
+  color: var(--white);
+  font-family: Inconsolata;
+  border: none;
+}
+
+.custom-other-recipes button:hover {
+  background-color: var(--lightBlue);
+  color: var(--navy);
+  box-shadow: inset 1px 1px 10px #a3cde8; 
 }
 
 #hidden-other-el {
