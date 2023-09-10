@@ -11,10 +11,17 @@
 /* BACKGROUND GRADIENT ON ALL PAGES */
 body {
   background: linear-gradient(#ebf4f5, #b5c6e0);
-  height: 100%;
+  min-height: 100vh;
   margin: 0;
   background-repeat: no-repeat;
   background-attachment: fixed;
+  display: flex;
+  flex-direction: column;
+}
+
+main {
+  flex-grow: 1;
+  
 }
 
 .header-font {

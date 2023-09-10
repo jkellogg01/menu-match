@@ -117,7 +117,13 @@ renderShoppingList();
 //     });
 // });
 
-
-$( function() {
-  $( "#sortable" ).sortable();
-} );
+$(function () {
+  $("#recipe-list").sortable({
+    update: function () {
+      shoppingListContainer.children().each(function (i, li) {
+        userData[i] = $(li).text();
+      });
+      localStorage.setItem("shoppingList", JSON.stringify(userData));
+    },
+  });
+});

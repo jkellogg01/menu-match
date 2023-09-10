@@ -140,8 +140,8 @@ function ingredientEventHandler() {
       );
       return;
     }
-    let drinks = [];
-    for (const value of data.drinks) {
+    const drinks = await Promise.all(data.drinks.map(async function (value) {
+      console.log(value.strDrink);
       const complete = await $.ajax({
         url:
           cocktailDBEndpoint +
@@ -150,8 +150,10 @@ function ingredientEventHandler() {
         method: "GET",
       });
       console.log(complete);
-      drinks.push(complete.drinks[0]);
-    }
+      return complete.drinks[0];
+
+  }));
+    
     // console.log(drinks);
     localStorage.setItem("displayRecipes", JSON.stringify(drinks));
     $(location).attr("href", "./display-recipes.html");
