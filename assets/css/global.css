@@ -11,10 +11,17 @@
 /* BACKGROUND GRADIENT ON ALL PAGES */
 body {
   background: linear-gradient(#ebf4f5, #b5c6e0);
-  height: 100%;
+  min-height: 100vh;
   margin: 0;
   background-repeat: no-repeat;
   background-attachment: fixed;
+  display: flex;
+  flex-direction: column;
+}
+
+main {
+  flex-grow: 1;
+
 }
 
 .header-font {
@@ -50,7 +57,10 @@ footer {
 
 .custom-nav-hamburger {
   color: var(--white);
+  background-color: var(--lightBlue);
 }
+
+
 
 .custom-nav-header {
   font-family: Karla;
@@ -93,8 +103,9 @@ footer {
 
 /* Landing Page */
 .user-blurb-card {
-  background-color: var(--yellowish);
-  font-family: Karla;
+  background-color: var(--white);
+  font-family: Inconsolata;
+  font-weight: 700;
   font-size: larger;
   text-align: center;
   color: var(--navy);
@@ -249,17 +260,26 @@ footer {
 
 .shopping-list-header {
   font-family: Karla;
-  color: var(--navy);
-  font-size: 5rem;
-  padding: 5px;
+  color: var(--white);
+  font-size: 4rem;
+  font-weight: 1100;
+  text-shadow: 1px 1px 2px gray;
+  margin-bottom: 2rem;
+  background-image: url(https://images.unsplash.com/photo-1516594798947-e65505dbb29d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80);
+  border-radius: 7px;
+  padding: 20px;
+  box-shadow: 2px 2px 2px 2px #bdbab8;
 }
 
 .shopping-list-blurb {
   font-family: Karla;
   color: var(--white);
-  font-size: 2rem;
-  border: solid 2px red;
   padding: 5px; 
+  background-color: var(--lightBlue);
+  border-radius: 7px;
+  text-shadow: 1px 1px 2px gray;
+  box-shadow: 2px 2px 2px 2px #bdbab8;
+
 }
 
 .shopping-list-title {
@@ -268,10 +288,15 @@ footer {
   color: var(--white);
 }
 
-.shopping-list-ingredients {
+.shopping-list-ingredients li {
   font-family: Inconsolata; 
-  color: var(--navy);
+  color: var(--white);
   text-transform: capitalize;
+  background-color: var(--darkBlue);
+  border-radius: 7px;
+  padding: 10px;
+  margin: 10px;
+  box-shadow: 2px 2px 2px 2px #bdbab8;
 }
 
 
