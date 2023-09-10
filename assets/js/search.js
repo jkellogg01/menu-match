@@ -61,12 +61,12 @@ mIngredient.on("click", mealingredientEventHandler);
 //FUNCTIONS FOR MEALS
 function mealnameEventHandler() {
   mSearch.text("");
-  mCategoryDrop.attr("hidden", true);
   mSearch.append("<h4>Type the Name of a Meal</h4>");
   mSearch.append(`<input class="mealNameInput" id="userNameInput" />`);
   mSearch.append("<button class=saveName >Search</button>");
   mSearch.append(`<p class="wrongEntry" />`);
   $(mSearch).on("click", "button", function () {
+    $(".wrongEntry").text("");
     var userInput = $("#userNameInput").val();
     $.ajax({
       url: mealDBEndpoint + mealDBExtensions.searchByName + userInput,
@@ -74,8 +74,9 @@ function mealnameEventHandler() {
       method: "GET",
     }).then((data) => {
       if (!data.meals) {
+        $(".wrongEntry").text("");
         $(".wrongEntry").text(
-          "Incorrect reference please try refining your search."
+          "Incorrect reference please try refining your search. Example: Lasagna, Wonton, Tuna Nicoise, ect."
         );
         return;
       }
@@ -92,12 +93,14 @@ function mealingredientEventHandler() {
   mSearch.append("<button>Search</button>");
   mSearch.append(`<p class="wrongEntry" />`);
   $(mSearch).on("click", "button", async (event) => {
+    $(".wrongEntry").text("");
     var userInput = $("#userIngredientInput").val();
     const data = await $.ajax({
       url: mealDBEndpoint + mealDBExtensions.searchByIngredient + userInput,
       method: "GET",
     });
     if (!data.meals) {
+      $(".wrongEntry").text("");
       $(".wrongEntry").text(
         "Incorrect reference, please try refining your search. Example: Chicken, Salmon, Pork, ect."
       );
@@ -120,12 +123,12 @@ function mealingredientEventHandler() {
 //FUNCTIONS FOR COCKTAILS
 function ingredientEventHandler() {
   search.text("");
-  categoryDrop.attr("hidden", true);
   search.append("<h4>Type a Cocktail Ingredient</h4>");
   search.append(`<input class="cocktailNameInput" id="userIngredientInput" />`);
   search.append("<button>Search</button>");
   search.append(`<p class="dWrongEntry" />`);
   $(search).on("click", "button", async function () {
+    $(".dWrongEntry").text("");
     var userInput = $("#userIngredientInput").val();
     const data = await $.ajax({
       url:
@@ -135,8 +138,9 @@ function ingredientEventHandler() {
       method: "GET",
     });
     if (!data.drinks) {
-      $(".wrongEntry").text(
-        "Incorrect reference please try refining your search."
+      $(".dWrongEntry").text("");
+      $(".dWrongEntry").text(
+        "Incorrect reference please try refining your search. Example: Lemon Juice, Coffee, Lime Juice, ect."
       );
       return;
     }
@@ -160,7 +164,6 @@ function ingredientEventHandler() {
 
 function nameEventHandler() {
   search.text("");
-  categoryDrop.attr("hidden", true);
   search.append("<h4>Type the Name of a Cocktail</h4>");
   search.append(`<input class="cocktailNameInput" id="userNameInput" />`);
   search.append("<button class=saveName >Search</button>");
@@ -168,6 +171,7 @@ function nameEventHandler() {
   var saveNameBtn = $("#saveName");
 
   $(search).on("click", "button", function () {
+    $(".dWrongEntry").text("");
     var userInput = $("#userNameInput").val();
     $.ajax({
       url: cocktailDBEndpoint + cocktailDBExtensions.searchByName + userInput,
@@ -175,8 +179,9 @@ function nameEventHandler() {
       method: "GET",
     }).then((data) => {
       if (!data.drinks) {
-        $(".wrongEntry").text(
-          "Incorrect reference please try refining your search."
+        $(".dWrongEntry").text("");
+        $(".dWrongEntry").text(
+          "Incorrect reference please try refining your search. Example: Old Fashion, Margarita, Rail Splitter, ect."
         );
         return;
       }
@@ -185,17 +190,6 @@ function nameEventHandler() {
     });
   });
 }
-
-//Currently unused until I have time to add a category drop down menu
-// function categoryEventHandler() {
-//   search.text("");
-//   categoryDrop.attr("hidden", true);
-//   categoryDrop.attr("hidden", false);
-//   console.log("categoryClicked");
-//   for (let index = 0; index < array.length; index++) {
-//     const element = array[index];
-//   }
-// }
 
 //PULLING COCKTAIL API DATA
 $.ajax({
