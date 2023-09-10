@@ -50,7 +50,10 @@ footer {
 
 .custom-nav-hamburger {
   color: var(--white);
+  background-color: var(--lightBlue);
 }
+
+
 
 .custom-nav-header {
   font-family: Karla;
