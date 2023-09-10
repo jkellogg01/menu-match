@@ -21,7 +21,7 @@ body {
 
 main {
   flex-grow: 1;
-  
+
 }
 
 .header-font {
@@ -261,15 +261,20 @@ footer {
   font-family: Karla;
   color: var(--navy);
   font-size: 5rem;
-  padding: 5px;
+  text-shadow: 1px 1px 2px gray;
+  margin-bottom: 3rem;
 }
 
 .shopping-list-blurb {
   font-family: Karla;
   color: var(--white);
   font-size: 2rem;
-  border: solid 2px red;
   padding: 5px; 
+  background-color: var(--darkBlue);
+  border-radius: 7px;
+  text-shadow: 1px 1px 2px gray;
+  box-shadow: 2px 2px 2px 2px #bdbab8;
+
 }
 
 .shopping-list-title {
@@ -278,10 +283,14 @@ footer {
   color: var(--white);
 }
 
-.shopping-list-ingredients {
+.shopping-list-ingredients li {
   font-family: Inconsolata; 
-  color: var(--navy);
+  color: var(--white);
   text-transform: capitalize;
+  background-color: var(--darkBlue);
+  border-radius: 7px;
+  padding: 10px;
+  margin: 10px;
 }
 
 
