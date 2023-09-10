@@ -48,9 +48,10 @@
     </nav>
 <!-- ================ nav bar end ===============-->
         <!--============================ shopping list ============================ =-->
-        <div
+        <!-- <div
             class="d-flex flex-column flex-md-row align-items-center pb-3 mb-4 border-bottom">
-        </div>
+        </div> -->
+        <!-- This line is visible, could make user think their screen is broken. -->
         <!--========== meal search bar========== -->
         
         <!-- <div class="container d-flex justify-content-center my-5">
@@ -65,10 +66,10 @@
         </div> -->
         <!--========== cocktail search bar end ========== -->
     <div class="container" id="appendData" >
-        <div class="pricing-header p-3 pb-md-4 mx-auto text-center">
-            <h1 class="display-4 fw-normal text-body-emphasis">Shopping List</h1>
-            <p class="fs-5 text-body-secondary text-body-emphasis">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Vero, incidunt.
+        <div class="pricing-header p-3 pb-md-4 mx-auto text-center mt-5">
+            <h1 class="shopping-list-header">Shopping List</h1>
+            <p class="shopping-list-blurb">
+            FEATURES OF THIS LIST - CHANGE 
             </p>
         </div>
    
@@ -76,12 +77,12 @@
         
         <div class="row row-cols-1 row-cols-md-3 mb-3 text-center justify-content-center">
           <div class="col">
-            <div class="card mb-4 rounded-3 shadow-sm">
-              <div class="card-header py-3">
-                <h4 class="my-0 fw-normal">Your List</h4>
+            <div class="card mb-4 rounded-3 shopping-list-whole">
+              <div class="card-header py-3 shopping-list-title">
+                <h4 class="fs-3">Ingredients</h4>
               </div>
               <div class="card-body">
-                <ul class="list-unstyled mt-3 mb-4" id="recipe-list">
+                <ul class="list-unstyled mt-3 mb-3 shopping-list-ingredients fs-4 list-group-flush overflow-auto" id="recipe-list">
                   <!-- <li></li>
                   <li></li>
                   <li></li>
@@ -98,7 +99,7 @@
           </div>
         </div>
     
-        <h2 class="display-6 text-center mb-4">Enjoy
+        <!-- <h2 class="display-6 text-center mb-4">Enjoy -->
     
         </h2> 
     </div>
