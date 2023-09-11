@@ -117,6 +117,8 @@ renderShoppingList();
 //     });
 // });
 
+//This function is used to make the line items in the shopping list ul sortable through jQuery UI, the latter part of the function saves the sorted order to local memory for the user.
+
 $(function () {
   $("#recipe-list").sortable({
     update: function () {
