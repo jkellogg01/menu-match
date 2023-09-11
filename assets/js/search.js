@@ -1,3 +1,5 @@
+var searchLimit = 19;
+
 //API FOR MEALS
 const mealDBEndpoint = "https://www.themealdb.com/api/json/v1/1/";
 const mealDBExtensions = {
@@ -83,7 +85,7 @@ function mealnameEventHandler() {
         $(".wrongEntry").text("");
         //if user data is not eaual to the data from the api then the following message will appear.
         $(".wrongEntry").text(
-          "Incorrect reference please try refining your search. Example: Lasagna, Wonton, Tuna Nicoise, ect."
+          "Incorrect reference, please try refining your search."
         );
         //if it was incorrect end this function here
         return;
@@ -125,7 +127,7 @@ function mealingredientEventHandler() {
       $(".wrongEntry").text("");
       //if user data is not eaual to the data from the api then the following message will appear.
       $(".wrongEntry").text(
-        "Incorrect reference, please try refining your search. Example: Chicken, Salmon, Pork, ect."
+        "Incorrect reference, please try refining your search."
       );
       //if it was incorrect end this function here
       return;
@@ -152,7 +154,9 @@ function mealingredientEventHandler() {
 //FUNCTIONS FOR COCKTAILS
 function ingredientEventHandler() {
   search.text("");
-  search.append("<h4>Type a Cocktail Ingredient</h4>");
+  search.append(
+    `<h4 id="cIngredient" data-cIngredient="cIngredient">Type a Cocktail Ingredient</h4>`
+  );
   search.append(`<input class="cocktailNameInput" id="userIngredientInput" />`);
   search.append("<button>Search</button>");
   search.append(`<p class="dWrongEntry" />`);
@@ -165,30 +169,34 @@ function ingredientEventHandler() {
         cocktailDBExtensions.searchByIngredient +
         userInput,
       method: "GET",
+      complete: checkAjax(),
     });
-    if (!data.drinks) {
-      $(".dWrongEntry").text("");
-      $(".dWrongEntry").text(
-        "Incorrect reference please try refining your search. Example: Lemon Juice, Coffee, Lime Juice, ect."
-      );
-      return;
-    }
-    const drinks = await Promise.all(
-      data.drinks.map(async function (value) {
-        console.log(value.strDrink);
-        const complete = await $.ajax({
-          url:
-            cocktailDBEndpoint +
-            cocktailDBExtensions.searchByName +
-            value.strDrink,
-          method: "GET",
-        });
-        console.log(complete);
-        return complete.drinks[0];
-      })
-    );
 
-    // console.log(drinks);
+    var userchoice = $("#cIngredient").attr("data-cIngredient");
+    $(document).on("ajaxSuccess", function (event) {});
+    checkAjax();
+    function checkAjax() {
+      if (userchoice === "cIngredient" && !data) {
+        $(".dWrongEntry").text(
+          "Incorrect reference, please try refining your search."
+        );
+      }
+    }
+
+    var randomDrinks = shuffle(data.drinks).slice(0, searchLimit);
+    console.log(randomDrinks);
+    var drinks = [];
+    for (let i = 0; i < randomDrinks.length; i++) {
+      var currentDrink = randomDrinks[i].strDrink;
+
+      var response = await $.ajax({
+        url:
+          cocktailDBEndpoint + cocktailDBExtensions.searchByName + currentDrink,
+        method: "GET",
+        crossDomain: true,
+      });
+      drinks.push(...response.drinks);
+    }
     localStorage.setItem("displayRecipes", JSON.stringify(drinks));
     $(location).attr("href", "./display-recipes.html");
   });
@@ -196,12 +204,10 @@ function ingredientEventHandler() {
 
 function nameEventHandler() {
   search.text("");
-  search.append("<h4>Type the Name of a Cocktail</h4>");
+  search.append(`<h4 data-name="name" >Type the Name of a Cocktail</h4>`);
   search.append(`<input class="cocktailNameInput" id="userNameInput" />`);
-  search.append("<button class=saveName >Search</button>");
+  search.append("<button>Search</button>");
   search.append(`<p class="dWrongEntry" />`);
-  var saveNameBtn = $("#saveName");
-
   $(search).on("click", "button", function () {
     $(".dWrongEntry").text("");
     var userInput = $("#userNameInput").val();
@@ -211,18 +217,38 @@ function nameEventHandler() {
       method: "GET",
     }).then((data) => {
       if (!data.drinks) {
-        $(".dWrongEntry").text("");
+        // $(".dWrongEntry").text("");
         $(".dWrongEntry").text(
-          "Incorrect reference please try refining your search. Example: Old Fashion, Margarita, Rail Splitter, ect."
+          "Incorrect reference, please try refining your search."
         );
         return;
       }
+
       localStorage.setItem("displayRecipes", JSON.stringify(data.drinks));
       $(location).attr("href", "./display-recipes.html");
     });
   });
 }
 
+function shuffle(array) {
+  let currentIndex = array.length,
+    randomIndex;
+
+  // While there remain elements to shuffle.
+  while (currentIndex > 0) {
+    // Pick a remaining element.
+    randomIndex = Math.floor(Math.random() * currentIndex);
+    currentIndex--;
+
+    // And swap it with the current element.
+    [array[currentIndex], array[randomIndex]] = [
+      array[randomIndex],
+      array[currentIndex],
+    ];
+  }
+
+  return array;
+}
 //PULLING COCKTAIL API DATA
 $.ajax({
   url: cocktailCatagories,
