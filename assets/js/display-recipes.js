@@ -5,8 +5,7 @@ const prepInstructionsEl = $("#prep-instructions");
 const recipeListContainerEl = $("#recipe-list");
 
 let savedRecipes = JSON.parse(localStorage.getItem("savedRecipes")) || [];
-let displayingRecipes =
-  JSON.parse(localStorage.getItem("displayRecipes")) || savedRecipes;
+let displayingRecipes = JSON.parse(localStorage.getItem("displayRecipes"));
 // THE FOLLOWING WILL NEED TO BE REMOVED ONCE I STOP USING MY EXAMPLE CODE
 // displayingRecipes = displayingRecipes.meals;
 
@@ -27,7 +26,9 @@ let shoppingList = JSON.parse(localStorage.getItem("shoppingList")) || [];
 
 let primaryRecipe = displayingRecipes[0];
 renderPrimaryRecipe(primaryRecipe);
-renderRecipeList();
+const displayingSaved =
+  JSON.stringify(savedRecipes) === JSON.stringify(displayingRecipes);
+renderRecipeList(displayingSaved);
 
 function renderPrimaryRecipe(recipe) {
   if (!recipe) {
@@ -58,7 +59,8 @@ function renderPrimaryRecipe(recipe) {
   }
 }
 
-function renderRecipeList() {
+function renderRecipeList(displayingSaved) {
+  recipeListContainerEl.empty();
   displayingRecipes.forEach((value, index) => {
     let recipeName = value.strMeal || value.strDrink;
     const listRecipeEl = $(
@@ -68,13 +70,20 @@ function renderRecipeList() {
       listRecipeEl.addClass("recipe-primary");
       console.log(value);
     }
-    const saveRecipeBtn = $('<button class="btn btn-primary">');
-    saveRecipeBtn.text("save");
-    saveRecipeBtn.on("click", handleSaveRecipe);
+    const recipeActionBtn = $('<button class="btn">');
+    if (displayingSaved) {
+      recipeActionBtn.addClass("btn-danger");
+      recipeActionBtn.text("unsave");
+      recipeActionBtn.on("click", handleUnsaveRecipe);
+    } else {
+      recipeActionBtn.addClass("btn-primary");
+      recipeActionBtn.text("save");
+      recipeActionBtn.on("click", handleSaveRecipe);
+    }
     listRecipeEl.attr("data-childIndex", index);
     listRecipeEl.text(recipeName);
     listRecipeEl.on("click", handleChangePrimaryRecipe);
-    listRecipeEl.append(saveRecipeBtn);
+    listRecipeEl.append(recipeActionBtn);
     recipeListContainerEl.append(listRecipeEl);
   });
 }
@@ -133,4 +142,18 @@ function filterIngredientPair(ingredientText) {
     result += segments[i] + " ";
   }
   return result.trim();
+}
+
+function handleUnsaveRecipe(event) {
+  let element = $(event.target);
+  let recipeIndex = element.parent().attr("data-childIndex");
+  let unsavingRecipe = savedRecipes[recipeIndex];
+  savedRecipes = displayingRecipes.filter(
+    (value) => JSON.stringify(value) != JSON.stringify(unsavingRecipe)
+  );
+  displayingRecipes = savedRecipes;
+  localStorage.setItem("displayingRecipes", JSON.stringify(savedRecipes));
+  console.log(savedRecipes);
+  localStorage.setItem("savedRecipes", JSON.stringify(savedRecipes));
+  renderRecipeList(displayingSaved);
 }
