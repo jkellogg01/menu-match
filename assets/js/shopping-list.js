@@ -16,9 +16,8 @@ function renderShoppingList() {
     const shoppingList = $('<li class="list-group-item">');
     //
     // const RemoveBtn = $('<button class="btn btn-danger">');
-    const RemoveBtn = $('<button class="btn btn-danger">');
-    RemoveBtn.text("X");
-    RemoveBtn.on("click", RemoveList);
+    const RemoveBtn = $('<button class="btn btn-danger btnDelete">');
+    RemoveBtn.text("delete");
 
     shoppingList.text(listName);
     shoppingListContainer.append(shoppingList);
@@ -30,7 +29,6 @@ renderShoppingList();
 // =========displaying data end=========
 // ===============================================================================
 //sortable
-
 $(function () {
   $("#recipe-list").sortable({
     update: function () {
@@ -41,13 +39,9 @@ $(function () {
     },
   });
 });
-
-$(".btn").empty();
-// // remove list item
-// function RemoveList(value) {
-//   let listName = $(value.target);
-//   console.log(userData);
-
-//   localStorage.setItem("shoppingList", JSON.stringify(userData));
-//   renderShoppingList();
-// }
+// remove button
+$(document).ready(function () {
+  $(".btnDelete").on("click", function () {
+    $(this).closest("li").remove();
+  });
+});

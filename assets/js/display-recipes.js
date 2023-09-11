@@ -64,6 +64,10 @@ function renderRecipeList() {
     const listRecipeEl = $(
       '<li class="list-group-item d-flex justify-content-between align-items-center">'
     );
+    if (value == primaryRecipe) {
+      listRecipeEl.addClass("recipe-primary");
+      console.log(value);
+    }
     const saveRecipeBtn = $('<button class="btn btn-primary">');
     saveRecipeBtn.text("save");
     saveRecipeBtn.on("click", handleSaveRecipe);
@@ -77,6 +81,8 @@ function renderRecipeList() {
 
 function handleChangePrimaryRecipe(event) {
   let element = $(event.target);
+  element.parent().children().removeClass("recipe-primary");
+  element.addClass("recipe-primary");
   let recipeIndex = element.attr("data-childIndex");
   primaryRecipe = displayingRecipes[recipeIndex];
   renderPrimaryRecipe(primaryRecipe);

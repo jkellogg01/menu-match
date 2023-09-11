@@ -227,23 +227,72 @@ footer {
   display: none;
 }
 
-@media screen and (max-width: 768px) {
-  /* .custom-other-recipes {
-    padding-bottom: 500px !important;
-  } */
-  /* #hidden-other-el {
-
 /* SEE ABOUT THIS HACK  */
-  /* @media screen and (max-width: 768px) { 
+/* @media screen and (max-width: 768px) { 
   .custom-other-recipes {
   }
   #hidden-other-el {
     display:block;
     padding-top: 10px !important; */
+
+.shopping-list-header {
+  font-family: Karla;
+  color: var(--white);
+  font-size: 4rem;
+  font-weight: 1100;
+  text-shadow: 1px 1px 2px gray;
+  margin-bottom: 2rem;
+  background-image: url(https://images.unsplash.com/photo-1516594798947-e65505dbb29d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80);
+  border-radius: 7px;
+  padding: 20px;
+  box-shadow: 2px 2px 2px 2px #bdbab8;
 }
-/* footer {
-    /* position: static !important; */
-/* position:static !important; */
-/* left: 0;
-    right:0; */
-/* } */
+
+.shopping-list-blurb {
+  font-family: Karla;
+  color: var(--white);
+  padding: 5px;
+  background-color: var(--lightBlue);
+  border-radius: 7px;
+  text-shadow: 1px 1px 2px gray;
+  box-shadow: 2px 2px 2px 2px #bdbab8;
+}
+
+.shopping-list-title {
+  font-family: Karla;
+  background-color: var(--yellowish);
+  color: var(--white);
+}
+
+.shopping-list-ingredients li {
+  font-family: Inconsolata;
+  color: var(--white);
+  text-transform: capitalize;
+  background-color: var(--darkBlue);
+  border-radius: 7px;
+  padding: 10px;
+  margin: 10px;
+  box-shadow: 2px 2px 2px 2px #bdbab8;
+}
+
+/* LIGHT/DAY MODE - NOT BEING USED */
+/* .btn-bd-primary {
+  --bd-button-bg: #f6ae2d;
+  --bd-button-rgb: #dedede;
+
+  --bs-btn-font-weight: 600;
+  --bs-btn-color: var(--bs-white);
+  --bs-btn-bg: var(--bd-button-bg);
+  --bs-btn-border-color: var(--bd-button-bg);
+  --bs-btn-hover-color: var(--bs-white);
+  --bs-btn-hover-bg: #2f4858;
+  --bs-btn-hover-border-color: #f6ae2d;
+  --bs-btn-focus-shadow-rgb: var(--bd-button-rgb);
+  --bs-btn-active-color: var(--bs-btn-hover-color);
+  --bs-btn-active-bg: #2f4858;
+  --bs-btn-active-border-color: #f6ae2d;
+}
+
+
+.bd-mode-toggle {
+  z-index: 1500; */
