@@ -32,7 +32,7 @@ renderRecipeList(displayingSaved);
 if (displayingSaved) {
 $("#saved-recipes").addClass("custom-active");
 } else if (primaryRecipe) {
-  var drinkSearchPage = $("#drink-search-page").addClass("custom-active")
+$("#drink-search-page").addClass("custom-active")
 }
 
 function renderPrimaryRecipe(recipe) {
