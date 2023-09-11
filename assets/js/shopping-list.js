@@ -13,10 +13,14 @@ function renderShoppingList() {
   //   }
   userData.forEach((value) => {
     let listName = value;
-    const shoppingList = $('<li class="list-group-item">');
+    const shoppingList = $(
+      '<li class=" d-flex justify-content-between list-group-item">'
+    );
     //
     // const RemoveBtn = $('<button class="btn btn-danger">');
-    const RemoveBtn = $('<button class="btn btn-danger btnDelete">');
+    const RemoveBtn = $(
+      '<button class=" d-flex justify-content-between btn btn-danger btnDelete ">'
+    );
     RemoveBtn.text("delete");
 
     shoppingList.text(listName);
