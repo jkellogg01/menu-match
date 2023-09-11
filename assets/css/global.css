@@ -21,7 +21,6 @@ body {
 
 main {
   flex-grow: 1;
-
 }
 
 .header-font {
@@ -36,7 +35,7 @@ main {
 footer {
   background-color: var(--navy);
   padding: 5px;
-  bottom:0;
+  bottom: 0;
 }
 
 .bi {
@@ -49,10 +48,9 @@ footer {
   --bs-nav-link-disabled-color: var(--bs-secondary-color);
 }
 
-
 /* NAV BAR */
 .custom-nav-body {
-  background-color: var(--navy)
+  background-color: var(--navy);
 }
 
 .custom-nav-hamburger {
@@ -60,15 +58,12 @@ footer {
   background-color: var(--lightBlue);
 }
 
-
-
 .custom-nav-header {
   font-family: Karla;
-  color: var(--white)!important;
+  color: var(--white) !important;
   box-shadow: 2px 2px 2px 2px #fafbfb;
   border-radius: 5px;
 }
-
 
 .nav-link {
   color: var(--white) !important;
@@ -124,11 +119,9 @@ footer {
   width: 40%;
 }
 
-
 .custom-margin {
   margin-bottom: 100px;
 }
-
 
 /* SEARCH RECIPES PAGE */
 /*Using this to move the categories drop down to the right*/
@@ -139,7 +132,7 @@ footer {
 .custom-search-card {
   background-color: var(--yellowish);
   text-align: center;
-  padding:0; 
+  padding: 0;
   border: none;
   box-shadow: 2px 2px 2px 2px #bdbab8;
 }
@@ -157,7 +150,7 @@ footer {
 .custom-search-card button:hover {
   background-color: var(--lightBlue);
   color: var(--navy);
-  box-shadow: inset 1px 1px 10px #a3cde8; 
+  box-shadow: inset 1px 1px 10px #a3cde8;
 }
 
 .custom-search-card ul {
@@ -181,8 +174,13 @@ footer {
 
 /* DISPLAY RECIPES PAGE */
 .vh-80 {
-  height: 80vh;
+  max-height: 80vh;
 }
+
+.vh-40 {
+  max-height: 40vh;
+} 
+
 .custom-recipe-card-whole {
   background-color: var(--yellowish);
   box-shadow: 2px 2px 2px 2px #bdbab8;
@@ -204,7 +202,7 @@ footer {
 .custom-recipe-ingredients button:hover {
   background-color: var(--lightBlue);
   color: var(--navy);
-  box-shadow: inset 1px 1px 10px #a3cde8; 
+  box-shadow: inset 1px 1px 10px #a3cde8;
 }
 
 .custom-recipe-instructions {
@@ -217,23 +215,26 @@ footer {
   box-shadow: 2px 2px 2px 2px #bdbab8;
 }
 
-.custom-other-recipes button {
+.custom-other-recipes button.btn-primary {
   background-color: var(--navy);
   color: var(--white);
   font-family: Inconsolata;
   border: none;
 }
 
-.custom-other-recipes button:hover {
+.custom-other-recipes button.btn-primary:hover {
   background-color: var(--lightBlue);
   color: var(--navy);
-  box-shadow: inset 1px 1px 10px #a3cde8; 
+  box-shadow: inset 1px 1px 10px #a3cde8;
 }
 
 #hidden-other-el {
-  display:none;
+  display: none;
 }
 
+.recipe-primary {
+  background-color: var(--lightBlue);
+}
 
 /* SEE ABOUT THIS HACK  */
 /* @media screen and (max-width: 768px) { 
@@ -241,22 +242,7 @@ footer {
   }
   #hidden-other-el {
     display:block;
-    padding-top: 10px !important;
-  }
-  footer {
-    position: static !important; 
-    position:static !important;
-    left: 0;
-    right:0;
-  } 
-} */
-
-/* SHOPPING LIST */
-
-.shopping-list-whole {
-  box-shadow: 2px 2px 2px 2px #bdbab8;
-}
-
+    padding-top: 10px !important; */
 
 .shopping-list-header {
   font-family: Karla;
@@ -274,12 +260,11 @@ footer {
 .shopping-list-blurb {
   font-family: Karla;
   color: var(--white);
-  padding: 5px; 
+  padding: 5px;
   background-color: var(--lightBlue);
   border-radius: 7px;
   text-shadow: 1px 1px 2px gray;
   box-shadow: 2px 2px 2px 2px #bdbab8;
-
 }
 
 .shopping-list-title {
@@ -289,7 +274,7 @@ footer {
 }
 
 .shopping-list-ingredients li {
-  font-family: Inconsolata; 
+  font-family: Inconsolata;
   color: var(--white);
   text-transform: capitalize;
   background-color: var(--darkBlue);
@@ -298,9 +283,6 @@ footer {
   margin: 10px;
   box-shadow: 2px 2px 2px 2px #bdbab8;
 }
-
-
-
 
 /* LIGHT/DAY MODE - NOT BEING USED */
 /* .btn-bd-primary {
@@ -322,4 +304,5 @@ footer {
 
 
 .bd-mode-toggle {
-  z-index: 1500; */
+  z-index: 1500; 
+  */
