@@ -1,8 +1,7 @@
 // ================================== localStorage ==================================
-
 // =========retrieving data=========
 const userData = JSON.parse(localStorage.getItem("shoppingList"));
-console.log(userData);
+// console.log(userData);
 //=========retrieving data end=========
 
 //=========displaying data=========
@@ -15,108 +14,21 @@ function renderShoppingList() {
   userData.forEach((value) => {
     let listName = value;
     const shoppingList = $('<li class="list-group-item">');
-    // ======= save button functionality ======
-    // const saveRecipeBtn = $('<button class="btn btn-primary">');
-    // saveRecipeBtn.text("save");
-    // saveRecipeBtn.on("click", handleSaveRecipe);
     //
-    //
-    //shoppingList.attr("data-childIndex", index);
-    //
+    // const RemoveBtn = $('<button class="btn btn-danger">');
+    const RemoveBtn = $('<button class="btn btn-danger btnDelete">');
+    RemoveBtn.text("delete");
+
     shoppingList.text(listName);
-    // shoppingList.on("click", handleChangePrimaryRecipe);
-    //
-    // shoppingList.append(saveRecipeBtn);
     shoppingListContainer.append(shoppingList);
+    //
+    shoppingList.append(RemoveBtn);
   });
 }
 renderShoppingList();
 // =========displaying data end=========
-
 // ===============================================================================
-
-// ================================== meal search bar ==================================
-// document.getElementById("mbtn").addEventListener("click", () => {
-//   let user = document.getElementById("muserInput").value;
-
-//   let mealAPI = fetch(
-//     `https://www.themealdb.com/api/json/v1/1/search.php?s=${user}`
-//   );
-//   mealAPI
-//     .then((getData) => {
-//       return getData.json();
-//     })
-//     .then((sendData) => {
-//       console.log(sendData);
-//       let data = "";
-//       sendData.meals.forEach((e) => {
-//         data += `
-//         <div class="card-body">
-//             <img src="${e.strMealThumb}" alt="" class="rounded img-fluid">
-//         </div>
-//         <div class="card-body">
-//                 <ul class="list-unstyled mt-3 mb-4">
-//                   <li>${e.strIngredient1}</li>
-//                   <li>${e.strIngredient2}</li>
-//                   <li>${e.strIngredient3}</li>
-//                   <li>${e.strIngredient4}</li>
-//                   <li>${e.strIngredient5}</li>
-//                   <li>${e.strIngredient6}</li>
-//                   <li>${e.strIngredient7}</li>
-//                   <li>${e.strIngredient8}</li>
-//                   <li>${e.strIngredient9}</li>
-//                   <li>${e.strIngredient10}</li>
-//                   <li>${e.strIngredient11}</li>
-//                   <li>${e.strIngredient12}</li>
-//                   <li>${e.strIngredient13}</li>
-//                   <li>${e.strIngredient14}</li>
-//                   <li>${e.strIngredient15}</li>
-//                   <li>${e.strIngredient16}</li>
-//                   <li>${e.strIngredient17}</li>
-//                   <li>${e.strIngredient18}</li>
-//                   <li>${e.strIngredient19}</li>
-//                   <li>${e.strIngredient20}</li>
-//                 </ul>
-//             </div>`;
-//         appendData.innerHTML = data;
-//       });
-//     });
-// });
-
-// //  ================================== cocktail search Bar  ==================================
-// document.getElementById("dbtn").addEventListener("click", () => {
-//   let user = document.getElementById("duserInput").value;
-
-//   let drinkAPI = fetch(
-//     `https://www.thecocktaildb.com/api/json/v1/1/search.php?s=${user}`
-//   );
-//   drinkAPI
-//     .then((getData) => {
-//       return getData.json();
-//     })
-//     .then((sendData) => {
-//       console.log(sendData);
-//       let data = "";
-//       sendData.drinks.forEach((e) => {
-//         data += `
-//           <div class="card-body">
-//               <img src="${e.strDrinkThumb}" alt="" class="rounded img-fluid">
-//           </div>
-//           <div class="card-body">
-//                   <ul class="list-unstyled mt-3 mb-4">
-//                     <li>${e.strIngredient1}</li>
-//                     <li>${e.strIngredient2}</li>
-//                     <li>${e.strIngredient3}</li>
-//                     <li>${e.strIngredient4}</li>
-//                     <li>${e.strIngredient5}</li>
-
-//                   </ul>
-//               </div>`;
-//         appendData.innerHTML = data;
-//       });
-//     });
-// });
-
+//sortable
 //This function is used to make the line items in the shopping list ul sortable through jQuery UI, the latter part of the function saves the sorted order to local memory for the user.
 
 $(function () {
@@ -127,5 +39,11 @@ $(function () {
       });
       localStorage.setItem("shoppingList", JSON.stringify(userData));
     },
+  });
+});
+// remove button function to remove list items on shopping list
+$(document).ready(function () {
+  $(".btnDelete").on("click", function () {
+    $(this).closest("li").remove();
   });
 });
