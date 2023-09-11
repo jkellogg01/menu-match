@@ -22,3 +22,14 @@ function renderShoppingList() {
 renderShoppingList();
 // =========displaying data end=========
 // ===============================================================================
+
+$(function () {
+  $("#recipe-list").sortable({
+    update: function () {
+      shoppingListContainer.children().each(function (i, li) {
+        userData[i] = $(li).text();
+      });
+      localStorage.setItem("shoppingList", JSON.stringify(userData));
+    },
+  });
+});

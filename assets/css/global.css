@@ -8,23 +8,19 @@
   --white: #fff;
 }
 
+/* BACKGROUND GRADIENT ON ALL PAGES */
 body {
   background: linear-gradient(#ebf4f5, #b5c6e0);
-  height: 100%;
+  min-height: 100vh;
   margin: 0;
   background-repeat: no-repeat;
   background-attachment: fixed;
-}
-header {
-  background-color: var(--navy);
-  padding: 15px;
-}
-header ul {
-  margin: 15px;
+  display: flex;
+  flex-direction: column;
 }
 
-.vh-80 {
-  height: 80vh;
+main {
+  flex-grow: 1;
 }
 
 .header-font {
@@ -35,52 +31,31 @@ header ul {
   font-family: Inconsolata;
 }
 
-/* ======================================== footer css ====================================*/
+/* FOOTER  */
 footer {
   background-color: var(--navy);
   padding: 5px;
-}
-/* ==========button toggle========== */
-.bd-mode-toggle {
-  z-index: 1500;
+  bottom: 0;
 }
 
 .bi {
   vertical-align: -0.125em;
   fill: currentColor;
 }
-/* ==============================light day button======================================== */
-/* ==========button styles========== */
-.btn-bd-primary {
-  --bd-button-bg: #f6ae2d;
-  --bd-button-rgb: #dedede;
-
-  --bs-btn-font-weight: 600;
-  --bs-btn-color: var(--bs-white);
-  --bs-btn-bg: var(--bd-button-bg);
-  --bs-btn-border-color: var(--bd-button-bg);
-  --bs-btn-hover-color: var(--bs-white);
-  --bs-btn-hover-bg: #2f4858;
-  --bs-btn-hover-border-color: #f6ae2d;
-  --bs-btn-focus-shadow-rgb: var(--bd-button-rgb);
-  --bs-btn-active-color: var(--bs-btn-hover-color);
-  --bs-btn-active-bg: #2f4858;
-  --bs-btn-active-border-color: #f6ae2d;
-}
-/* ============================== secondary colors ======================================== */
 
 .text-body-secondary {
   --bs-secondary-color: var(--white);
   --bs-nav-link-disabled-color: var(--bs-secondary-color);
 }
-/* Landing Page */
 
+/* NAV BAR */
 .custom-nav-body {
   background-color: var(--navy);
 }
 
 .custom-nav-hamburger {
   color: var(--white);
+  background-color: var(--lightBlue);
 }
 
 .custom-nav-header {
@@ -121,9 +96,11 @@ footer {
   box-shadow: inset 1px 1px 10px #a3cde8;
 }
 
+/* Landing Page */
 .user-blurb-card {
-  background-color: var(--yellowish);
-  font-family: Karla;
+  background-color: var(--white);
+  font-family: Inconsolata;
+  font-weight: 700;
   font-size: larger;
   text-align: center;
   color: var(--navy);
@@ -146,14 +123,62 @@ footer {
   margin-bottom: 100px;
 }
 
+/* SEARCH RECIPES PAGE */
 /*Using this to move the categories drop down to the right*/
 .dropdownForCategories {
   float: right;
 }
 
+.custom-search-card {
+  background-color: var(--yellowish);
+  text-align: center;
+  padding: 0;
+  border: none;
+  box-shadow: 2px 2px 2px 2px #bdbab8;
+}
+
+.custom-search-card button {
+  font-family: Karla;
+  background-color: var(--navy);
+  color: var(--white);
+  border: none;
+  border-radius: 5px;
+  margin-left: 10px;
+  padding: 5px;
+}
+
+.custom-search-card button:hover {
+  background-color: var(--lightBlue);
+  color: var(--navy);
+  box-shadow: inset 1px 1px 10px #a3cde8;
+}
+
+.custom-search-card ul {
+  font-family: Karla;
+  background-color: var(--lightBlue);
+  color: var(--navy);
+  font-size: 1.5rem;
+}
+
+.custom-search-card li:hover {
+  background-color: var(--navy);
+  color: var(--white);
+}
+
+.custom-search-card h4 {
+  font-family: Karla;
+  color: var(--navy);
+  margin-bottom: 10px;
+  margin-top: 10px;
+}
+
 /* DISPLAY RECIPES PAGE */
+.vh-80 {
+  height: 80vh;
+}
 .custom-recipe-card-whole {
   background-color: var(--yellowish);
+  box-shadow: 2px 2px 2px 2px #bdbab8;
 }
 .custom-recipe-name {
   color: var(--navy);
@@ -169,6 +194,12 @@ footer {
   border: none;
 }
 
+.custom-recipe-ingredients button:hover {
+  background-color: var(--lightBlue);
+  color: var(--navy);
+  box-shadow: inset 1px 1px 10px #a3cde8;
+}
+
 .custom-recipe-instructions {
   color: var(--navy);
 }
@@ -176,6 +207,20 @@ footer {
 .custom-other-recipes {
   background-color: var(--darkBlue);
   font-family: Inconsolata;
+  box-shadow: 2px 2px 2px 2px #bdbab8;
+}
+
+.custom-other-recipes button {
+  background-color: var(--navy);
+  color: var(--white);
+  font-family: Inconsolata;
+  border: none;
+}
+
+.custom-other-recipes button:hover {
+  background-color: var(--lightBlue);
+  color: var(--navy);
+  box-shadow: inset 1px 1px 10px #a3cde8;
 }
 
 #hidden-other-el {
@@ -187,6 +232,12 @@ footer {
     padding-bottom: 500px !important;
   } */
   /* #hidden-other-el {
+
+/* SEE ABOUT THIS HACK  */
+  /* @media screen and (max-width: 768px) { 
+  .custom-other-recipes {
+  }
+  #hidden-other-el {
     display:block;
     padding-top: 10px !important; */
 }
