@@ -8,16 +8,12 @@ const userData = JSON.parse(localStorage.getItem("shoppingList"));
 const shoppingListContainer = $("#recipe-list");
 
 function renderShoppingList() {
-  //   for (let i = 0; i < userData.length; i++) {
-  //     var value = userData[i];
-  //   }
   userData.forEach((value) => {
     let listName = value;
     const shoppingList = $(
       '<li class=" d-flex justify-content-between list-group-item">'
     );
     //
-    // const RemoveBtn = $('<button class="btn btn-danger">');
     const RemoveBtn = $(
       '<button class=" d-flex justify-content-between btn btn-danger btnDelete ">'
     );
