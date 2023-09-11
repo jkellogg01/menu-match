@@ -76,7 +76,7 @@ footer {
 /* Landing Page */
 
 .custom-nav-body {
-  background-color: var(--navy)
+  background-color: var(--navy);
 }
 
 .custom-nav-hamburger {
@@ -85,11 +85,10 @@ footer {
 
 .custom-nav-header {
   font-family: Karla;
-  color: var(--white)!important;
+  color: var(--white) !important;
   box-shadow: 2px 2px 2px 2px #fafbfb;
   border-radius: 5px;
 }
-
 
 .nav-link {
   color: var(--white) !important;
@@ -143,8 +142,6 @@ footer {
   width: 40%;
 }
 
-
-
 .custom-margin {
   margin-bottom: 100px;
 }
@@ -182,22 +179,20 @@ footer {
 }
 
 #hidden-other-el {
-  display:none;
+  display: none;
 }
 
-@media screen and (max-width: 768px) { 
+@media screen and (max-width: 768px) {
   /* .custom-other-recipes {
     padding-bottom: 500px !important;
   } */
   /* #hidden-other-el {
     display:block;
     padding-top: 10px !important; */
-  }
-  /* footer {
+}
+/* footer {
     /* position: static !important; */
-    /* position:static !important; */
-    /* left: 0;
+/* position:static !important; */
+/* left: 0;
     right:0; */
-  /* } */ 
-  
-
+/* } */
