@@ -227,6 +227,10 @@ footer {
   display: none;
 }
 
+.recipe-primary {
+  background-color: var(--lightBlue);
+}
+
 /* SEE ABOUT THIS HACK  */
 /* @media screen and (max-width: 768px) { 
   .custom-other-recipes {
@@ -295,4 +299,5 @@ footer {
 
 
 .bd-mode-toggle {
-  z-index: 1500; */
+  z-index: 1500; 
+  */
