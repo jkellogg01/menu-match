@@ -174,8 +174,13 @@ footer {
 
 /* DISPLAY RECIPES PAGE */
 .vh-80 {
-  height: 80vh;
+  max-height: 80vh;
 }
+
+.vh-40 {
+  max-height: 40vh;
+} 
+
 .custom-recipe-card-whole {
   background-color: var(--yellowish);
   box-shadow: 2px 2px 2px 2px #bdbab8;
