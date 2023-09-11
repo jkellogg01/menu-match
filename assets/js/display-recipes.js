@@ -29,6 +29,11 @@ renderPrimaryRecipe(primaryRecipe);
 const displayingSaved =
   JSON.stringify(savedRecipes) === JSON.stringify(displayingRecipes);
 renderRecipeList(displayingSaved);
+if (displayingSaved) {
+$("#saved-recipes").addClass("custom-active");
+} else if (primaryRecipe) {
+  var drinkSearchPage = $("#drink-search-page").addClass("custom-active")
+}
 
 function renderPrimaryRecipe(recipe) {
   if (!recipe) {
