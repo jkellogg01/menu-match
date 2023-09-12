@@ -1,4 +1,4 @@
-var searchLimit = 19;
+var searchLimit = 14;
 
 //API FOR MEALS
 const mealDBEndpoint = "https://www.themealdb.com/api/json/v1/1/";
