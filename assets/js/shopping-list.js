@@ -1,8 +1,8 @@
 // ================================== localStorage ==================================
 // =========retrieving data=========
-const userData = JSON.parse(localStorage.getItem("shoppingList"));
 // console.log(userData);
 //=========retrieving data end=========
+const userData = JSON.parse(localStorage.getItem("shoppingList"));
 
 //=========displaying data=========
 const shoppingListContainer = $("#recipe-list");

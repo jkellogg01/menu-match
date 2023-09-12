@@ -58,19 +58,19 @@ mIngredient.on("click", mealingredientEventHandler);
 //FUNCTIONS FOR MEALS
 function mealnameEventHandler() {
   //clearing the seachbar text from prior searches
-  mSearch.text("");
+  mSearch.empty();
   //appending a header so when the user clicks to search by a meal by name it says this
   mSearch.append("<h4>Type the Name of a Meal</h4>");
   //appending a input class with special classes and id's
   mSearch.append(`<input class="mealNameInput" id="userNameInput" />`);
   //appending a button to search with
-  mSearch.append("<button class=saveName >Search</button>");
+  mSearch.append(`<button id="mName" >Search</button>`);
   //making a paragraph underneath to indicate if the search was valid or not to the user
   mSearch.append(`<p class="wrongEntry" />`);
   //event listener for a click event on the appended button
-  $(mSearch).on("click", "button", function () {
+  mSearch.on("click", "#mName", function () {
     //clears the paragraph text when the user clicks the button
-    $(".wrongEntry").text("");
+    $(".wrongEntry").empty();
     //taking the value of what the user typed into the search bar
     var userInput = $("#userNameInput").val();
     //grabbing the api data for meal names
@@ -82,10 +82,10 @@ function mealnameEventHandler() {
     }).then((data) => {
       if (!data.meals) {
         //clearing paragraph text one more time before filling text in
-        $(".wrongEntry").text("");
+        $(".wrongEntry").empty();
         //if user data is not eaual to the data from the api then the following message will appear.
         $(".wrongEntry").text(
-          "Incorrect reference, please try refining your search."
+          "Incorrect reference, please try refining your search. Try something like pork, chicken, salmon, ect!"
         );
         //if it was incorrect end this function here
         return;
@@ -93,26 +93,26 @@ function mealnameEventHandler() {
       //pushing the data to local storage
       localStorage.setItem("displayRecipes", JSON.stringify(data.meals));
       //finally pushing the user to the display recipes page
-      $(location).attr("href", "./display-recipes.html");
+      // $(location).attr("href", "./display-recipes.html");
     });
   });
 }
 
 function mealingredientEventHandler() {
   //clearing the seachbar text from prior searches
-  mSearch.text("");
+  mSearch.empty();
   //appending a header so when the user clicks to search by a meal by name it says this
   mSearch.append("<h4>Type a Meal Ingredient</h4>");
   //appending a input class with special classes and id's
   mSearch.append(`<input class="mealNameInput" id="userIngredientInput" />`);
   //appending a button to search with
-  mSearch.append("<button>Search</button>");
+  mSearch.append(`<button id="mIngredient">Search</button>`);
   //making a paragraph underneath to indicate if the search was valid or not to the user
   mSearch.append(`<p class="wrongEntry" />`);
   //event listener for a click event on the appended button
-  $(mSearch).on("click", "button", async (event) => {
+  mSearch.on("click", "#mIngredient", async (event) => {
     //clears the paragraph text when the user clicks the button
-    $(".wrongEntry").text("");
+    $(".wrongEntry").empty();
     //taking the value of what the user typed into the search bar
     var userInput = $("#userIngredientInput").val();
     //grabbing the api data for meal names
@@ -124,10 +124,10 @@ function mealingredientEventHandler() {
     //running the data against what the user said
     if (!data.meals) {
       //clearing paragraph text one more time before filling text in
-      $(".wrongEntry").text("");
+      $(".wrongEntry").empty();
       //if user data is not eaual to the data from the api then the following message will appear.
       $(".wrongEntry").text(
-        "Incorrect reference, please try refining your search."
+        "Incorrect reference, please try refining your search. Try something like pork, chicken, salmon, ect!"
       );
       //if it was incorrect end this function here
       return;
@@ -147,22 +147,23 @@ function mealingredientEventHandler() {
     //pushing the data to local storage
     localStorage.setItem("displayRecipes", JSON.stringify(meals));
     //finally pushing the user to the display recipes page
-    $(location).attr("href", "./display-recipes.html");
+    // $(location).attr("href", "./display-recipes.html");
   });
 }
 
 //FUNCTIONS FOR COCKTAILS
 function ingredientEventHandler() {
-  search.text("");
+  search.empty();
   search.append(
     `<h4 id="cIngredient" data-cIngredient="cIngredient">Type a Cocktail Ingredient</h4>`
   );
   search.append(`<input class="cocktailNameInput" id="userIngredientInput" />`);
-  search.append("<button>Search</button>");
+  search.append(`<button id="i">Search</button>`);
   search.append(`<p class="dWrongEntry" />`);
-  $(search).on("click", "button", async function () {
-    $(".dWrongEntry").text("");
+  search.on("click", "#i", async function () {
+    $(".dWrongEntry").empty();
     var userInput = $("#userIngredientInput").val();
+    console.log(userInput);
     const data = await $.ajax({
       url:
         cocktailDBEndpoint +
@@ -173,12 +174,14 @@ function ingredientEventHandler() {
     });
 
     var userchoice = $("#cIngredient").attr("data-cIngredient");
-    $(document).on("ajaxSuccess", function (event) {});
-    checkAjax();
+    $(document).on("ajaxSuccess", function (event) {
+      checkAjax();
+    });
+
     function checkAjax() {
       if (userchoice === "cIngredient" && !data) {
         $(".dWrongEntry").text(
-          "Incorrect reference, please try refining your search."
+          "Incorrect reference, please try refining your search. Try something like pork, chicken, salmon, ect!"
         );
       }
     }
@@ -198,34 +201,35 @@ function ingredientEventHandler() {
       drinks.push(...response.drinks);
     }
     localStorage.setItem("displayRecipes", JSON.stringify(drinks));
-    $(location).attr("href", "./display-recipes.html");
+    // $(location).attr("href", "./display-recipes.html");
   });
 }
 
 function nameEventHandler() {
-  search.text("");
+  search.empty();
   search.append(`<h4 data-name="name" >Type the Name of a Cocktail</h4>`);
   search.append(`<input class="cocktailNameInput" id="userNameInput" />`);
-  search.append("<button>Search</button>");
+  search.append(`<button id="n" >Search</button>`);
   search.append(`<p class="dWrongEntry" />`);
-  $(search).on("click", "button", function () {
-    $(".dWrongEntry").text("");
+  search.on("click", "#n", function () {
+    $(".dWrongEntry").empty();
     var userInput = $("#userNameInput").val();
+    console.log(userInput);
     $.ajax({
       url: cocktailDBEndpoint + cocktailDBExtensions.searchByName + userInput,
 
       method: "GET",
     }).then((data) => {
       if (!data.drinks) {
-        // $(".dWrongEntry").text("");
+        // $(".dWrongEntry").empty();
         $(".dWrongEntry").text(
-          "Incorrect reference, please try refining your search."
+          "Incorrect reference, please try refining your search. Try something like pork, chicken, salmon, ect!"
         );
         return;
       }
 
       localStorage.setItem("displayRecipes", JSON.stringify(data.drinks));
-      $(location).attr("href", "./display-recipes.html");
+      // $(location).attr("href", "./display-recipes.html");
     });
   });
 }
