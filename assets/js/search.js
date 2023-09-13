@@ -85,7 +85,7 @@ function mealnameEventHandler() {
         $(".wrongEntry").empty();
         //if user data is not eaual to the data from the api then the following message will appear.
         $(".wrongEntry").text(
-          "Incorrect reference, please try refining your search. Try something like pork, chicken, salmon, ect!"
+          "Incorrect reference, please try refining your search. Try something like Lasagna, Wontons, Chick-fi-la Sandwich, ect!"
         );
         //if it was incorrect end this function here
         return;
@@ -93,7 +93,7 @@ function mealnameEventHandler() {
       //pushing the data to local storage
       localStorage.setItem("displayRecipes", JSON.stringify(data.meals));
       //finally pushing the user to the display recipes page
-      // $(location).attr("href", "./display-recipes.html");
+      $(location).attr("href", "./display-recipes.html");
     });
   });
 }
@@ -127,7 +127,7 @@ function mealingredientEventHandler() {
       $(".wrongEntry").empty();
       //if user data is not eaual to the data from the api then the following message will appear.
       $(".wrongEntry").text(
-        "Incorrect reference, please try refining your search. Try something like pork, chicken, salmon, ect!"
+        "Incorrect reference, please try refining your search. Try something like Pork, Chicken, Salmon, ect!"
       );
       //if it was incorrect end this function here
       return;
@@ -147,7 +147,7 @@ function mealingredientEventHandler() {
     //pushing the data to local storage
     localStorage.setItem("displayRecipes", JSON.stringify(meals));
     //finally pushing the user to the display recipes page
-    // $(location).attr("href", "./display-recipes.html");
+    $(location).attr("href", "./display-recipes.html");
   });
 }
 
@@ -181,7 +181,7 @@ function ingredientEventHandler() {
     function checkAjax() {
       if (userchoice === "cIngredient" && !data) {
         $(".dWrongEntry").text(
-          "Incorrect reference, please try refining your search. Try something like pork, chicken, salmon, ect!"
+          "Incorrect reference, please try refining your search. Try something like Gin, Whiskey, Vodka, ect!"
         );
       }
     }
@@ -201,7 +201,7 @@ function ingredientEventHandler() {
       drinks.push(...response.drinks);
     }
     localStorage.setItem("displayRecipes", JSON.stringify(drinks));
-    // $(location).attr("href", "./display-recipes.html");
+    $(location).attr("href", "./display-recipes.html");
   });
 }
 
@@ -211,28 +211,28 @@ function nameEventHandler() {
   search.append(`<input class="cocktailNameInput" id="userNameInput" />`);
   search.append(`<button id="n" >Search</button>`);
   search.append(`<p class="dWrongEntry" />`);
-  search.on("click", "#n", function () {
-    $(".dWrongEntry").empty();
-    var userInput = $("#userNameInput").val();
-    console.log(userInput);
-    $.ajax({
-      url: cocktailDBEndpoint + cocktailDBExtensions.searchByName + userInput,
-
-      method: "GET",
-    }).then((data) => {
-      if (!data.drinks) {
-        // $(".dWrongEntry").empty();
-        $(".dWrongEntry").text(
-          "Incorrect reference, please try refining your search. Try something like pork, chicken, salmon, ect!"
-        );
-        return;
-      }
-
-      localStorage.setItem("displayRecipes", JSON.stringify(data.drinks));
-      // $(location).attr("href", "./display-recipes.html");
-    });
-  });
 }
+search.on("click", "#n", function () {
+  $(".dWrongEntry").empty();
+  var userInput = $("#userNameInput").val();
+  console.log(userInput);
+  $.ajax({
+    url: cocktailDBEndpoint + cocktailDBExtensions.searchByName + userInput,
+
+    method: "GET",
+  }).then((data) => {
+    if (!data.drinks) {
+      // $(".dWrongEntry").empty();
+      $(".dWrongEntry").text(
+        "Incorrect reference, please try refining your search. Try something like Rum Runner, Margarita, Old Fashion, ect!"
+      );
+      return;
+    }
+
+    localStorage.setItem("displayRecipes", JSON.stringify(data.drinks));
+    $(location).attr("href", "./display-recipes.html");
+  });
+});
 
 function shuffle(array) {
   let currentIndex = array.length,
